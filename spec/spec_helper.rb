@@ -1,4 +1,7 @@
 require 'simplecov'
+require 'coveralls'
+
+Coveralls.wear!('rails')
 
 SimpleCov.start do 
   add_filter "/spec"

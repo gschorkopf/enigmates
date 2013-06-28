@@ -14,6 +14,7 @@ end
 
 group :test do
   gem 'simplecov', :require => false
+  gem 'rspec-pride'
 end
 
 group :test, :development do
