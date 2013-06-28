@@ -1,3 +1,4 @@
 === Enigmates
+[![Code Climate](https://codeclimate.com/github/gschorkopf/enigmates.png)](https://codeclimate.com/github/gschorkopf/enigmates)
 
 Solvin' puzzles. Bring your friends.
