@@ -1,4 +1,7 @@
 Enigmates::Application.routes.draw do
+  resources :pieces
+
+
   resources :puzzles
 
 
