@@ -1,5 +1,4 @@
-<h2><%= @puzzle %></h2>
-<h4><%= @puzzle.topic %></h4>
+<%= render "puzzles/info" %>
 
 <%= button_to 'Attempt', puzzle_attempts_path(@puzzle), class: "btn btn-success" %>
 <%= link_to 'Back', puzzles_path, class: "btn" %>

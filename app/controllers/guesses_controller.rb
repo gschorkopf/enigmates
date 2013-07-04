@@ -6,7 +6,7 @@ class GuessesController < ApplicationController
     if pieces.include?(params[:guess].titleize)
       @guess = params[:guess].titleize
     else
-      render @attempt
+      redirect_to puzzle_attempt_path(@attempt.puzzle, @attempt)
     end
   end
 end
