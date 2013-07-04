@@ -8,6 +8,6 @@ class AttemptsController < ApplicationController
     puzzle = Puzzle.find(params[:puzzle_id])
     @attempt = puzzle.attempts.create
 
-    redirect_to puzzle_attempt_path(puzzle, @attempt), notice: "Good luck!"
+    redirect_to puzzle_attempt_path(puzzle, @attempt)
   end
 end

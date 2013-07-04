@@ -1,8 +1,12 @@
 <h2><%= @puzzle %></h2>
 <h4><%= @puzzle.topic %></h4>
 
-<ul>
-<% @puzzle.pieces.each do |piece| %>
-  <li><%= piece %></li>
-<% end %>
-</ul>
+<form action="<%=@attempt.id%>/guesses" method="post" data-remote="true"> 
+  <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a state"></input>
+</form>
+
+<ul id="results"></ul>
+
+<script type="text/javascript">
+  $("input#guess_field").focus();
+</script>
