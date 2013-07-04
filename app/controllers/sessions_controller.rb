@@ -8,16 +8,16 @@ class SessionsController < ApplicationController
     @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
     
     if @authorization
-      render notice: "Welcome back #{@authorization.user.name}! You have already signed up."
+      redirect_to root_path, notice: "Welcome back #{@authorization.user.name}! You have already signed up."
     else
       user = User.new(
-        name: auth_hash["user_info"]["name"],
-        email: auth_hash["user_info"]["email"])
+        name: auth_hash["info"]["name"],
+        email: auth_hash["info"]["email"])
       user.authorizations.build(
         provider: auth_hash["provider"],
         uid: auth_hash["uid"])
       user.save   
-      render notice: "Hi #{user.name}! You've signed up."
+      redirect_to root_path, notice: "Welcome #{user.name}! Good luck on your puzzlin'."
     end
   end
 
