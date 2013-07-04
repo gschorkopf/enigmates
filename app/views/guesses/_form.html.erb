@@ -1,0 +1,29 @@
+<%= form_for(@guess) do |f| %>
+  <% if @guess.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guess.errors.count, "error") %> prohibited this guess from being saved:</h2>
+
+      <ul>
+      <% @guess.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :piece_id %><br />
+    <%= f.number_field :piece_id %>
+  </div>
+  <div class="field">
+    <%= f.label :attempt_id %><br />
+    <%= f.number_field :attempt_id %>
+  </div>
+  <div class="field">
+    <%= f.label :correct %><br />
+    <%= f.check_box :correct %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
