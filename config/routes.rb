@@ -1,4 +1,4 @@
 Enigmates::Application.routes.draw do
-  resources :puzzles
-  root to: "puzzles#show"
+  resources :puzzles, only: [:index, :show]
+  root to: "puzzles#index"
 end

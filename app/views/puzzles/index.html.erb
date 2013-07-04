@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Topic</th>
-    <th>Type</th>
+    <th>Format</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,16 +12,11 @@
 
 <% @puzzles.each do |puzzle| %>
   <tr>
-    <td><%= puzzle.name %></td>
+    <td><%= link_to puzzle.name, puzzle_path(puzzle) %></td>
     <td><%= puzzle.topic %></td>
-    <td><%= puzzle.type %></td>
+    <td><%= puzzle.format %></td>
     <td><%= link_to 'Show', puzzle %></td>
-    <td><%= link_to 'Edit', edit_puzzle_path(puzzle) %></td>
     <td><%= link_to 'Destroy', puzzle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Puzzle', new_puzzle_path %>

@@ -6,11 +6,11 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="container">
 
-<%= render "shared/header" %>
-<%= yield %>
-<%= render "shared/footer" %>
+  <%= render "shared/header" %>
+  <%= yield %>
+  <%= render "shared/footer" %>
 
 </body>
 </html>
