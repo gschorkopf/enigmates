@@ -1,7 +1,58 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+puzzle = Puzzle.create(
+  name: "States in the United States",
+  topic: "geography",
+  format: "map")
+
+puzzle.pieces.create([ 
+  {:content=>"Alabama"}, 
+  {:content=>"Alaska"}, 
+  {:content=>"Arizona"}, 
+  {:content=>"Arkansas"}, 
+  {:content=>"California"}, 
+  {:content=>"Colorado"}, 
+  {:content=>"Connecticut"}, 
+  {:content=>"Delaware"}, 
+  {:content=>"Florida"}, 
+  {:content=>"Georgia"}, 
+  {:content=>"Hawaii"}, 
+  {:content=>"Idaho"}, 
+  {:content=>"Illinois"}, 
+  {:content=>"Indiana"}, 
+  {:content=>"Iowa"}, 
+  {:content=>"Kansas"}, 
+  {:content=>"Kentucky"}, 
+  {:content=>"Louisiana"}, 
+  {:content=>"Maine"}, 
+  {:content=>"Maryland"}, 
+  {:content=>"Massachusetts"}, 
+  {:content=>"Michigan"}, 
+  {:content=>"Minnesota"}, 
+  {:content=>"Mississippi"}, 
+  {:content=>"Missouri"}, 
+  {:content=>"Montana"}, 
+  {:content=>"Nebraska"}, 
+  {:content=>"Nevada"}, 
+  {:content=>"New Hampshire"}, 
+  {:content=>"New Jersey"}, 
+  {:content=>"New Mexico"}, 
+  {:content=>"New York"}, 
+  {:content=>"North Carolina"}, 
+  {:content=>"North Dakota"}, 
+  {:content=>"Ohio"}, 
+  {:content=>"Oklahoma"}, 
+  {:content=>"Oregon"}, 
+  {:content=>"Pennsylvania"}, 
+  {:content=>"Rhode Island"}, 
+  {:content=>"South Carolina"}, 
+  {:content=>"South Dakota"}, 
+  {:content=>"Tennessee"}, 
+  {:content=>"Texas"}, 
+  {:content=>"Utah"}, 
+  {:content=>"Vermont"}, 
+  {:content=>"Virginia"}, 
+  {:content=>"Washington"}, 
+  {:content=>"West Virginia"}, 
+  {:content=>"Wisconsin"}, 
+  {:content=>"Wyoming"}
+])
+

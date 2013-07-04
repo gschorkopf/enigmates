@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @puzzle.name %>
+</p>
+
+<p>
+  <b>Topic:</b>
+  <%= @puzzle.topic %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @puzzle.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_puzzle_path(@puzzle) %> |
+<%= link_to 'Back', puzzles_path %>
