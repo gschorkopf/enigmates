@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PuzzlesController do
 
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { "name" => "States of the United States" } }
   let(:valid_session) { {} }
 
   describe "GET index" do

@@ -1,0 +1,8 @@
+<h2><%= @puzzle %></h2>
+<h4><%= @puzzle.topic %></h4>
+
+<ul>
+<% @puzzle.pieces.each do |piece| %>
+  <li><%= piece %></li>
+<% end %>
+</ul>

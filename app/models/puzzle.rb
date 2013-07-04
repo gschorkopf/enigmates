@@ -3,6 +3,10 @@ class Puzzle < ActiveRecord::Base
   has_many :pieces
   has_many :attempts
 
+  def to_s
+    name
+  end
+
   def contents
     pieces.map(&:content)
   end

@@ -7,7 +7,7 @@ describe Piece do
 
   describe "#to_s" do
     it "overwrites string for piece" do
-      expect(@piece.to_s).to eq "Alabama"
+      expect(@piece.to_s).to eq @piece.content
     end
   end
 end

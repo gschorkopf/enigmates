@@ -1,22 +1,7 @@
-<h1>Listing puzzles</h1>
+<h2>Listing puzzles</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Topic</th>
-    <th>Format</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @puzzles.each do |puzzle| %>
-  <tr>
-    <td><%= link_to puzzle.name, puzzle_path(puzzle) %></td>
-    <td><%= puzzle.topic %></td>
-    <td><%= puzzle.format %></td>
-    <td><%= link_to 'Show', puzzle %></td>
-    <td><%= link_to 'Destroy', puzzle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<ul>
+  <% @puzzles.each do |puzzle| %>
+    <li><%= link_to puzzle.name, puzzle_path(puzzle) %></li>
+  <% end %>
+</ul>

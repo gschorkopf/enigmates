@@ -12,6 +12,12 @@ describe Puzzle do
       {:content=>"Arizona"}])
   end
 
+  describe "#to_s" do
+    it "overwrites string for puzzle" do
+      expect(@puzzle.to_s).to eq @puzzle.name
+    end
+  end
+
   describe "#contents" do
     it "returns array the content columns of each piece" do
       expect(@puzzle.contents).to eq ["Alabama", "Alaska", "Arizona"]
