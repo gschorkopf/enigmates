@@ -7,6 +7,7 @@ gem 'unicorn'
 gem 'coveralls', require: false
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

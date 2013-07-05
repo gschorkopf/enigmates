@@ -5,22 +5,24 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
  
-    @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
-    
-    if @authorization
-      redirect_to root_path, notice: "Welcome back #{@authorization.user.name}! You have already signed up."
+    if session[:user_id]
+      User.find(session[:user_id]).add_provider(auth_hash)
+   
+      redirect_to root_path, notice: "You can now login using #{auth_hash["provider"].capitalize} too!"
     else
-      user = User.new(
-        name: auth_hash["info"]["name"],
-        email: auth_hash["info"]["email"])
-      user.authorizations.build(
-        provider: auth_hash["provider"],
-        uid: auth_hash["uid"])
-      user.save   
-      redirect_to root_path, notice: "Welcome #{user.name}! Good luck on your puzzlin'."
+      auth = Authorization.find_or_create(auth_hash)
+      session[:user_id] = auth.user.id
+    
+      redirect_to root_path, notice: "Welcome #{auth.user.name}!"
     end
   end
 
   def failure
+    redirect_to root_path, notice: "Sorry, but you didn't allow access to our app!"
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Logged out!"
   end
 end

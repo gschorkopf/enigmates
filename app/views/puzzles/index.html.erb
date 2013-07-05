@@ -1,3 +1,9 @@
+<% if logged_in? %>
+  Logged in as <%= current_user %> | <%= link_to "Logout", "/logout" %>
+<% else %>
+  <%= link_to "Connect With Facebook", "/auth/facebook" %> | <%= link_to "Connect With Google", "/auth/google_oauth2" %>
+<% end %>
+
 <h2>Listing puzzles</h2>
 
 <ul>
