@@ -5,9 +5,9 @@ gem 'jquery-rails'
 gem 'flatui-rails'
 gem 'unicorn'
 gem 'coveralls', require: false
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
+gem 'omniauth-twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

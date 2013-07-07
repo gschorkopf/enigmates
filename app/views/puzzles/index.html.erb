@@ -1,7 +1,7 @@
 <% if logged_in? %>
   Logged in as <%= current_user %> | <%= link_to "Logout", "/logout" %>
 <% else %>
-  <%= link_to "Connect With Facebook", "/auth/facebook" %> | <%= link_to "Connect With Google", "/auth/google_oauth2" %>
+  <%= link_to "Connect With Facebook", "/auth/facebook" %> | <%= link_to "Connect With Google", "/auth/google_oauth2" %> | <%= link_to "Connect With Twitter", "/auth/twitter" %>
 <% end %>
 
 <h2>Listing puzzles</h2>
