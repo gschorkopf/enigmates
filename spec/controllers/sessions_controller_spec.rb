@@ -1,7 +1,22 @@
 require 'spec_helper'
 
-describe SessionsController do
-  describe "POST create"
+describe SessionsController, "OmniAuth" do
+  describe "POST create" do
+    before do
+      request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    end
+
+    it "sets a session variable to the auth hash" do
+      request.env["omniauth.auth"][:uid].should == '1234'
+    end
+
+    context "user with given email is not in DB" do
+      xit "creates a new authorization and user" do
+        post :create
+        expect(User.last.name).to eq "Geoff"
+      end
+    end
+  end
 
   describe "GET failure" do
     it "redirects to root path" do

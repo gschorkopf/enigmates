@@ -1,7 +1,7 @@
 require 'simplecov'
 require 'coveralls'
 
-# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do 
   add_filter "/spec"
   add_filter "/config"
@@ -11,6 +11,15 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+
+RACK_ENV = ENV['ENVIRONMENT'] ||= 'test'
+OmniAuth.config.test_mode = true
+auth_hash =
+  {provider: "facebook",
+   uid: "1234",
+   info: {name: "Geoff",
+          email: "geoff@enigmates.com"}}
+OmniAuth.config.add_mock(:facebook, auth_hash)
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
