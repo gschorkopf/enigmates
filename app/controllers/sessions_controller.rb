@@ -7,13 +7,12 @@ class SessionsController < ApplicationController
       notice = "Welcome back, #{user.name}!"
     else
       user = Authorization.create_from_auth(auth_hash).user
-      notice = "You are now registered as #{user.name}!"
+      user.save ? notice = "You are now registered as #{user.name}!" : notice = "Something went wrong! Likely you didn't supply your email to #{auth_hash["provider"].capitalize}" 
     end
 
     session[:user_id] = user.id
     redirect_to root_path, notice: notice
   end
-  # Occasionally, auth sources can't find email. Example: Twitter
 
   def failure
     redirect_to root_path, notice: "Sorry, but you didn't allow access to our app!"

@@ -1,0 +1,16 @@
+<div id="auth_login" class="pull-right">
+  <% if logged_in? %>
+    Logged in as <%= current_user %> | <%= link_to "Logout", "/logout" %>
+  <% else %>
+    Log in with:
+    <a href="/auth/twitter" class="auth_provider">
+      <%= image_tag "twitter_64.png", size: "32x32", alt: "Twitter" %>
+    </a>
+    <a href="/auth/facebook" class="auth_provider">
+      <%= image_tag "facebook_64.png", size: "32x32", alt: "Facebook" %>
+    </a>
+    <a href="/auth/google_auth2" class="auth_provider">
+      <%= image_tag "google_apps_64.png", size: "32x32", alt: "Google" %>
+    </a>
+  <% end %>
+</div>
