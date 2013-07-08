@@ -1,6 +1,5 @@
 class GuessesController < ApplicationController
   def create
-    raise params
     @attempt = Attempt.find(params[:attempt_id])
     pieces = @attempt.puzzle.contents
 
