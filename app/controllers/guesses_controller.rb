@@ -6,7 +6,8 @@ class GuessesController < ApplicationController
     if pieces.include?(params[:guess])
       piece = Piece.find_by_content(params[:guess])
       @guess = @attempt.guesses.create(
-                piece_id: piece.id) unless @attempt.piece_exists?(piece.id)
+                piece_id: piece.id,
+                user_id: current_user.id) unless @attempt.piece_exists?(piece.id)
     end
   end
 end

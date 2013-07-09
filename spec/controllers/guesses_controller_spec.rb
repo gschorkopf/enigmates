@@ -8,6 +8,8 @@ describe GuessesController do
       format: "map")
     @attempt = @puzzle.attempts.create
     @piece = @puzzle.pieces.create(content: "alabama")
+    @user = User.create(name: "Geoff", email: "geoff@enigmates.com")
+    ApplicationController.any_instance.stub(:current_user).and_return(@user)
   end
 
   describe "POST create" do

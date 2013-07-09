@@ -1,5 +1,5 @@
 <% if @guess %>
   var target = $("ul#results")
-  target.prepend("<li><%= @guess.piece.content.titleize %></li>")
+  target.prepend("<li><%= @guess.user %> got: <%= @guess.piece.content.titleize %></li>")
   $("input#guess_field").val("")
 <% end %>
