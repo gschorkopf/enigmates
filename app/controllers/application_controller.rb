@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user
   end
+
+  def require_login
+    unless logged_in?
+      redirect_to "/login", notice: "You must be logged in to puzzle it up!"
+    end
+  end
 end

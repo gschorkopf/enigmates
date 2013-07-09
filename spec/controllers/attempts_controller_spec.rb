@@ -8,6 +8,8 @@ describe AttemptsController do
       name: "States in the United States",
       topic: "geography",
       format: "map")
+    @user = User.create(name: "Geoff", email: "geoff@enigmates.com")
+    ApplicationController.any_instance.stub(:current_user).and_return(@user)
   end
 
   describe "GET show" do

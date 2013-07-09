@@ -1,4 +1,6 @@
 class GuessesController < ApplicationController
+  # before_filter :require_player
+
   def create
     @attempt = Attempt.find(params[:attempt_id])
     pieces = @attempt.puzzle.contents

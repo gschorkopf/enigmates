@@ -1,4 +1,6 @@
 class AttemptsController < ApplicationController
+  before_filter :require_login
+  
   def show
     @attempt = Attempt.find(params[:id])
     @puzzle = @attempt.puzzle
