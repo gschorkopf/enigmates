@@ -8,6 +8,7 @@ gem 'coveralls', require: false
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 gem 'omniauth-twitter'
+gem 'private_pub'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -29,4 +30,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'thin'
 end

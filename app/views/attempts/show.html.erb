@@ -4,6 +4,8 @@
 
 <ul id="results"></ul>
 
+<%= subscribe_to "/attempts/#{@attempt.id}" %>
+
 <script type="text/javascript">
   $("input#guess_field").focus();
   $("input#guess_field").on("keyup", function(){

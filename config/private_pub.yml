@@ -1,0 +1,10 @@
+development:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+test:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+production:
+  server: "http://enigmates.herokuapp.com/faye"
+  secret_token: "70efc5c3c8a6b62e48b1f217d8b9a6f5f5fe3a50796194155d2b7e238e39adaa"
+  signature_expiration: 3600 # one hour
