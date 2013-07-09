@@ -37,11 +37,11 @@ describe GuessesController do
       end
     end
 
-    context "guess is correct and piece exists" do
+    context "guess is correct and piece exists, regardless of case" do
       it "does not create another correct guess" do
         expect{
           post :create,
-          guess: "alabama",
+          guess: "alAbama",
           attempt_id: @attempt.id,
           puzzle_id: @puzzle.id,
           format: :js
