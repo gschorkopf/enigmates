@@ -3,10 +3,10 @@ class GuessesController < ApplicationController
     @attempt = Attempt.find(params[:attempt_id])
     pieces = @attempt.puzzle.contents
 
-    if pieces.include?(params[:guess].titleize)
-      @guess = params[:guess].titleize
-    else
-      redirect_to puzzle_attempt_path(@attempt.puzzle, @attempt)
+    if pieces.include?(params[:guess])
+      piece = Piece.find_by_content(params[:guess])
+      @guess = @attempt.guesses.create(
+                piece_id: piece.id) unless @attempt.piece_exists?(piece.id)
     end
   end
 end

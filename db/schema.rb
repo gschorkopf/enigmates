@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20130704202055) do
   create_table "guesses", :force => true do |t|
     t.integer  "piece_id"
     t.integer  "attempt_id"
-    t.boolean  "correct",    :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "correct",    :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "pieces", :force => true do |t|
