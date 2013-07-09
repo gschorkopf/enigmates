@@ -2,11 +2,15 @@
 
 <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a guess"></input>
 
+<svg id="svg">
+</svg>
+
 <ul id="results"></ul>
 
 <%= subscribe_to "/attempts/#{@attempt.id}" %>
 
 <script type="text/javascript">
+$(document).ready(function(){
   $("input#guess_field").focus();
   $("input#guess_field").on("keyup", function(){
     $.ajax({
@@ -15,4 +19,27 @@
       type: "POST"
     })
   });
+
+  var height = 540;
+  var width = 940;
+
+  var svg = d3.select('#svg').append('svg')
+    .attr('width', width)
+    .attr('height', height);
+  var group = svg.append('g');
+
+  var projection = d3.geo.albersUsa();
+  group.attr('transorm', 'scale(.3, .3)');
+
+  d3.json('/assets/us-states.json', function(collection) {
+    group.selectAll('path')
+      .data(collection.features)
+      .enter().append('path')
+      .attr('d', d3.geo.path().projection(projection))
+      .attr('id', function(d){return d.properties.name.replace(/\s+/g, '')})
+      .style('fill', 'white')
+      .style('stroke', 'white')
+      .style('stroke-width', 1);
+  });
+})
 </script>

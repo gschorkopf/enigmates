@@ -2,6 +2,7 @@
   <% publish_to "/attempts/#{@guess.attempt.id}" do %>
     var target = $("ul#results")
     target.prepend("<li><%= @guess.user %> got: <%= @guess.piece.content.titleize %></li>")
-    $("input#guess_field").val("")
+    $("input#guess_field").val("");
+    d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "grey");
   <% end %>
 <% end %>
