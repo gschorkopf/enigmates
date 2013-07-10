@@ -1,3 +1,8 @@
-<%= render "puzzles/info" %>
+<div class="row">
+  <div class="span6">
+    <h2><%= @puzzle %></h2>
+    <h4>(<%= @puzzle.topic %>)</h4>
+  </div>
+</div>
 
 <%= button_to 'Attempt', puzzle_attempts_path(@puzzle), class: "btn btn-success" %>

@@ -1,8 +1,17 @@
 <% if @guess %>
   <% publish_to "/attempts/#{@guess.attempt.id}" do %>
     var target = $("ul#results")
-    target.prepend("<li><%= @guess.user %> got: <%= @guess.piece.content.titleize %></li>")
-    $("input#guess_field").val("");
+    var score = $("span#puzzle_score")
+    var guess = $("input#guess_field")
+
+    guess.val("");
+
+    score.text(Number(score.text())+1);
+    target.prepend("<li class='guess'><%= @guess.user %> got: <%= @guess.piece.content.titleize %></li>")
     d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "grey");
+
+    <% if @attempt.guesses.count == @attempt.puzzle.pieces.count %>
+      guess.fadeOut();
+    <% end %>
   <% end %>
 <% end %>
