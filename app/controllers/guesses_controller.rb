@@ -1,5 +1,5 @@
 class GuessesController < ApplicationController
-  # before_filter :require_player
+  before_filter :require_player
 
   def create
     guess = params[:guess].downcase

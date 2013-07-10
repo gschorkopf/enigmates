@@ -12,7 +12,19 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless logged_in?
-      redirect_to "/login", notice: "You must be logged in to puzzle it up!"
+      redirect_to "/login"
     end
+  end
+
+  def require_player
+    attempt = find_attempt
+    unless current_user.attempts.include?(attempt)
+      redirect_to puzzles_path
+    end
+  end
+
+private
+  def find_attempt
+    Attempt.find(params[:id] || params[:attempt_id])
   end
 end

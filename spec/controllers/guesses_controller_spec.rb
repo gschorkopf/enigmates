@@ -9,6 +9,7 @@ describe GuessesController do
     @attempt = @puzzle.attempts.create
     @piece = @puzzle.pieces.create(content: "alabama")
     @user = User.create(name: "Geoff", email: "geoff@enigmates.com")
+    @attempt.add_player(@user.id)
     ApplicationController.any_instance.stub(:current_user).and_return(@user)
   end
 

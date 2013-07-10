@@ -1,5 +1,5 @@
 Enigmates::Application.routes.draw do
-  get '/login', to: 'home#show'
+  get '/login', to: 'sessions#new'
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/auth/failure', to: 'sessions#failure'
   get '/logout', to: 'sessions#destroy'

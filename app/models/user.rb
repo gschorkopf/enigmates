@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name
+
   has_many :authorizations
+  has_many :attempt_users
+  has_many :attempts, through: :attempt_users
+
   validates :name, :email, :presence => true
 
   def add_provider(auth_hash)

@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe SessionsController, "OmniAuth" do
+  describe "GET new" do
+    it "returns a 200 success" do
+      get :new
+      expect(response.status).to eq 200
+    end
+  end
+
   describe "POST create" do
     before do
       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
