@@ -28,4 +28,15 @@ describe Attempt do
       expect(@attempt.users).to eq [@user]
     end
   end
+
+  describe "#has_player?" do
+    it "returns true if user is assoc with attempt" do
+      @attempt.add_player(@user.id)
+      expect(@attempt.has_player?(@user.id)).to eq true
+    end
+
+    it "returns false if user is not part of attempt" do
+      expect(@attempt.has_player?(@user.id)).to eq false
+    end
+  end
 end

@@ -13,4 +13,8 @@ class Attempt < ActiveRecord::Base
       attempt_id: id,
       user_id: user_id )
   end
+
+  def has_player?(user_id)
+    attempt_users.map(&:user_id).include?(user_id)
+  end
 end

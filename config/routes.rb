@@ -10,4 +10,6 @@ Enigmates::Application.routes.draw do
       resources :guesses, only: [:create]
     end
   end
+
+  match 'invites/:attempt_id/', to: "invites#create", as: "invites_create"
 end

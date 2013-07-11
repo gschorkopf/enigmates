@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def require_player
     attempt = find_attempt
-    unless current_user.attempts.include?(attempt)
+    unless attempt.has_player?(current_user.id)
       redirect_to puzzles_path
     end
   end
