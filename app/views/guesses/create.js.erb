@@ -2,16 +2,15 @@
   <% publish_to "/attempts/#{@guess.attempt.id}" do %>
     var target = $("ul#results")
     var score = $("span#puzzle_score")
-    var guess = $("input#guess_field")
-
-    guess.val("");
 
     score.text(Number(score.text())+1);
     target.prepend("<li class='guess'><%= @guess.user %> got: <%= @guess.piece.content.titleize %></li>")
-    d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "grey");
+    d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "#F5A9BC");
 
     <% if @attempt.guesses.count == @attempt.puzzle.pieces.count %>
-      guess.fadeOut();
+      $("input#guess_field").fadeOut();
     <% end %>
   <% end %>
+  d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "#A9A9F5");
+  $("input#guess_field").val("")
 <% end %>
