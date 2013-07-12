@@ -6,12 +6,8 @@
   </form>
 </div>
 
-<div class="span2">
-  <h2><span id="your_score"><%= @attempt.guesses.count %></span> / <%= @puzzle.pieces.count %></h2> correct
-  <p>Your Score</p>
-</div>
-
-<div class="span2">
-  <h2><span id="opponent_score"><%= @attempt.guesses.count %></span> / <%= @puzzle.pieces.count %></h2> correct
-  <p>Opponent Score</p>
+<% @attempt.users.each_with_index do |user, index| %>
+<div class="span1">
+  <h2><span id="score<%=index%>"><%= @attempt.player_score(user.id) %></span> / <%= @puzzle.pieces.count %></h2> correct
+  <p><%= user %>'s Score</p>
 </div>

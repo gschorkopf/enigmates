@@ -7,7 +7,7 @@
     target.prepend("<li class='guess'><%= @guess.user %> got: <%= @guess.piece.content.titleize %></li>")
     d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "#F5A9BC");
     // account for versus mode or coop
-    <% if @attempt.guesses.count == @attempt.puzzle.pieces.count %>
+    <% if @attempt.team_count == @attempt.puzzle.total %>
       $("input#guess_field").fadeOut();
     <% end %>
   <% end %>

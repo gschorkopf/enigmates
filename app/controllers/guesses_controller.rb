@@ -8,9 +8,16 @@ class GuessesController < ApplicationController
 
     if pieces.include?(guess)
       piece = Piece.find_by_content(guess)
-      @guess = @attempt.guesses.create(
-                piece_id: piece.id,
-                user_id: current_user.id) unless @attempt.piece_exists?(piece.id)
+
+      if @attempt.mode == "co-op"
+        @guess = @attempt.guesses.create(
+                  piece_id: piece.id,
+                  user_id: current_user.id) unless @attempt.piece_solved?(piece.id)
+      elsif @attempt.mode == "versus"
+        @guess = @attempt.guesses.create(
+                  piece_id: piece.id,
+                  user_id: current_user.id) unless @attempt.piece_solved_by_player?(piece.id, current_user.id)
+      end
     end
   end
 end

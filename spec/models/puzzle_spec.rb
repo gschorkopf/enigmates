@@ -23,4 +23,10 @@ describe Puzzle do
       expect(@puzzle.contents).to eq ["Alabama", "Alaska", "Arizona"]
     end
   end
+
+  describe "#total" do
+    it "returns the count for pieces in puzzle" do
+      expect(@puzzle.total).to eq 3
+    end
+  end
 end

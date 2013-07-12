@@ -10,4 +10,8 @@
   def contents
     pieces.map(&:content)
   end
+
+  def total
+    pieces.count
+  end
 end
