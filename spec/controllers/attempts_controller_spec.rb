@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AttemptsController do
-  let(:valid_session) { {} }
+  let(:valid_session) { {mode: "coop"} }
 
   before :each do
     @puzzle = Puzzle.create(

@@ -1,4 +1,6 @@
 class Attempt < ActiveRecord::Base
+  attr_accessible :mode
+
   has_many :guesses
   has_many :attempt_users
   has_many :users, through: :attempt_users

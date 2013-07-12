@@ -3,6 +3,12 @@
     <h2><%= @puzzle %></h2>
     <h4>(<%= @puzzle.topic %>)</h4>
   </div>
-</div>
 
-<%= button_to 'Attempt', puzzle_attempts_path(@puzzle), class: "btn btn-success" %>
+  <div class="span6">
+    <p>Play modes: </p>
+    <div class="btn-group">
+      <%= button_to 'Co-Op', puzzle_attempts_path(@puzzle, mode: :coop), class: "btn btn-success" %>
+      <%= button_to 'Versus', puzzle_attempts_path(@puzzle, mode: :versus), class: "btn" %>
+    </div>
+  </div>
+</div>

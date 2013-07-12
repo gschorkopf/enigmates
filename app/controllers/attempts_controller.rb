@@ -9,7 +9,8 @@ class AttemptsController < ApplicationController
 
   def create
     puzzle = Puzzle.find(params[:puzzle_id])
-    @attempt = puzzle.attempts.create
+    @attempt = puzzle.attempts.create(mode: params[:mode])
+
     @attempt.add_player(current_user.id)
 
     redirect_to puzzle_attempt_path(puzzle, @attempt)

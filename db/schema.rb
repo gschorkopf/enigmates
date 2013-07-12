@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710232402) do
+ActiveRecord::Schema.define(:version => 20130712012543) do
 
   create_table "attempt_users", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130710232402) do
     t.integer  "puzzle_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "mode"
   end
 
   create_table "authorizations", :force => true do |t|
