@@ -8,7 +8,7 @@
     <p>Play modes: </p>
     <div class="btn-group">
       <%= button_to 'Co-Op', puzzle_attempts_path(@puzzle, mode: "co-op"), class: "btn btn-success" %>
-      <%= button_to 'Versus', puzzle_attempts_path(@puzzle, mode: "versus"), class: "btn" %>
+      <div class="btn disabled">Versus</div>
     </div>
   </div>
 </div>

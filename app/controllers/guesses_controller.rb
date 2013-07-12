@@ -9,7 +9,7 @@ class GuessesController < ApplicationController
     if pieces.include?(guess)
       piece = Piece.find_by_content(guess)
 
-      if @attempt.mode == "co-op"
+    if @attempt.mode == "co-op"
         @guess = @attempt.guesses.create(
                   piece_id: piece.id,
                   user_id: current_user.id) unless @attempt.piece_solved?(piece.id)

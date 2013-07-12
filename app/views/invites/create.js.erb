@@ -1,6 +1,6 @@
 <% if @user %>  
   <% publish_to "/users/#{@user.id}" do %>
-    $("#notices").append("<P><%=@notice%>" + "<a href='/puzzles/<%=@attempt.puzzle.id%>/attempts/<%=@attempt.id%>'><%=@attempt.puzzle%></a></P>");
+    $("#notices").append("<P><%=@message%>" + "<a href='/puzzles/<%=@attempt.puzzle.id%>/attempts/<%=@attempt.id%>'><%=@attempt.puzzle%></a></P>");
   <% end %>
   // Something confirming invite sent
 <% elsif @warning %>
