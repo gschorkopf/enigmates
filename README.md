@@ -8,6 +8,8 @@
 
 #### About Enigmates
 
+This project is under construction. The MVP will be available Thursday, July 18th.
+
 Enigmates is an open source project for gSchool, built as a mastery project by [Geoff Schorkopf](http://www.github.com/gschorkopf). Enigmates sharpens your mind with daily puzzles you can solve simultaneously with friends -- or with a complete stranger. Modes include 'versus' and 'co-op', and puzzle varieties include map challenges, sporcle-styled lists, and more. The app uses Faye for pubsub, d3 for puzzle visuals, and Omniauth for authorization (Twitter, Google, and Facebook).
 
 #### Visit Enigmates's production site
