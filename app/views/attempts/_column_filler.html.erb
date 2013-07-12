@@ -1,0 +1,3 @@
+<% unless @attempt.users.count == 4 %>
+  <div class="span<%= 4 - @attempt.users.count %>"></div>
+<% end %>
