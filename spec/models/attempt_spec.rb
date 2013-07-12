@@ -73,4 +73,25 @@ describe Attempt do
       expect(@attempt.player_score(@partner.id)).to eq 0
     end
   end
+
+  describe "#within_player_limit?" do
+    it "returns true if player count is within limit" do
+      expect(@attempt.within_player_limit?).to eq true
+    end
+
+    it "returns false if it exceeds limit" do
+      @invitee1 = User.create(name: "Shane", email: "shane@enigmates.com")
+      @invitee2 = User.create(name: "Josh", email: "josh@enigmates.com")
+      @invitee3 = User.create(name: "Chris", email: "chris@enigmates.com")
+
+      @attempt.add_player(@user.id)
+      @attempt.add_player(@invitee1.id)
+      @attempt.add_player(@invitee2.id)
+      @attempt.add_player(@invitee3.id)
+
+      expect(@attempt.users.count).to eq 4
+
+      expect(@attempt.within_player_limit?).to eq false
+    end
+  end
 end

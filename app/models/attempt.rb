@@ -15,6 +15,10 @@ class Attempt < ActiveRecord::Base
     !guesses.empty?
   end
 
+  def within_player_limit?
+    users.count <= 3
+  end
+
   def add_player(user_id)
     attempt_users.create(
       attempt_id: id,

@@ -1,10 +1,12 @@
 <% if @user %>  
   <% publish_to "/users/#{@user.id}" do %>
-    $("#notices").append("<P><%=@message%>" + "<a href='/puzzles/<%=@attempt.puzzle.id%>/attempts/<%=@attempt.id%>'><%=@attempt.puzzle%></a></P>");
+    $("#notices").append("<P><%=@notice%>" + "<a href='/puzzles/<%=@attempt.puzzle.id%>/attempts/<%=@attempt.id%>'><%=@attempt.puzzle%></a></P>");
   <% end %>
-  $("#friend").val("");
   // Something confirming invite sent
+<% elsif @warning %>
+  $("#notices").append("<p><%=@warning%></P>")
 <% else %>
   $("#notices").append("<P>That player does not exist!</P>");
-  $("#friend").val("");
 <% end %>
+
+$("#friend").val("");
