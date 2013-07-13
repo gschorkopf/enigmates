@@ -6,6 +6,12 @@ describe User do
     @auth_hash =
       {"provider" => "facebook",
        "uid" => "1234"}
+    @puzzle = Puzzle.create(
+      name: "States in the United States",
+      topic: "geography",
+      format: "map")
+    @attempt = @puzzle.attempts.create!
+    @inviter = User.create(name: "Shane", email: "shane@enigmates.com")
   end
 
   describe "#add_provider" do
@@ -21,6 +27,32 @@ describe User do
   describe "#to_s" do
     it "overwrites string for user" do
       expect(@user.to_s).to eq @user.name
+    end
+  end
+
+  describe "#invited?" do
+    it "returns true if user has been invited already" do
+      invite = Invite.create(
+        sender_id: @inviter.id,
+        receiver_id: @user.id,
+        puzzle_id: @puzzle.id,
+        attempt_id: @attempt.id)
+      expect(@user.invited?(@attempt.id, @inviter.id)).to eq true
+    end
+
+    it "returns false if user has not been invited already" do
+      expect(@user.invited?(@attempt.id, @inviter.id)).to eq false
+    end
+  end
+
+  describe "#invites" do
+    it "returns all invites where user is receiver" do
+      invite = Invite.create(
+        sender_id: @inviter.id,
+        receiver_id: @user.id,
+        puzzle_id: @puzzle.id,
+        attempt_id: @attempt.id)
+      expect(@user.invites).to eq [invite]
     end
   end
 end

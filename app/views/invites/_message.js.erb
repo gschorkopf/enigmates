@@ -1,0 +1,5 @@
+<% publish_to "" do %>
+  $("#messages-container").append("<%= j render partial: 'messages/message', locals: {message: @message} %>");
+  $("#messages-container").scrollTop($("#messages-container")[0].scrollHeight);
+<% end %>
+$("#message-text-area").val("");

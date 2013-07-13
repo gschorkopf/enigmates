@@ -22,6 +22,7 @@ describe InvitesController do
               name: "Shane",
               format: :js
         expect(@invitee1.attempts.count).to eq 1
+        expect(@invitee1.invites.count).to eq 1
       end
 
       it "does not add user if max has been reached" do
@@ -38,6 +39,26 @@ describe InvitesController do
               name: "Chris",
               format: :js
         expect(@invitee4.attempts.count).to eq 0
+        expect(@invitee4.invites.count).to eq 0
+      end
+    end
+
+    context "user has been invited already by sender" do
+      it "does not re-add user / create new invite" do
+        @attempt.add_player(@invitee1.id)
+        invite = Invite.create(
+          sender_id: @user.id,
+          receiver_id: @invitee1.id,
+          puzzle_id: @puzzle.id,
+          attempt_id: @attempt.id)
+        expect(@invitee1.invites.count).to eq 1
+
+        post  :create,
+              attempt_id: @attempt.id, 
+              name: "Shane",
+              format: :js
+
+        expect(@invitee1.invites.count).to eq 1
       end
     end
   end

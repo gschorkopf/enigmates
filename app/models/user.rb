@@ -19,4 +19,12 @@ class User < ActiveRecord::Base
   def to_s
     name
   end
+
+  def invited?(attempt_id, sender_id)
+    !Invite.where(attempt_id: attempt_id, sender_id: sender_id).empty?
+  end
+
+  def invites
+    Invite.where(receiver_id: id)
+  end
 end
