@@ -11,5 +11,6 @@ Enigmates::Application.routes.draw do
     end
   end
 
-  match 'invites/:attempt_id/', to: "invites#create", as: "invites_create"
+  match 'invites/:attempt_id/', to: "invites#create"
+  resources :messages, only: [:create]
 end

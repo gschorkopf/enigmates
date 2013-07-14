@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
   def invites
     Invite.where(receiver_id: id)
   end
+
+  def messages
+    Message.where(receiver_id: id)
+  end
 end
