@@ -1,11 +1,3 @@
-<div class="span6">
-  <h2><%= @puzzle %></h2>
-  <h4>(<%= @puzzle.topic.titleize %>, <%= @attempt.mode.capitalize %>)</h4>
-  <form action="/invites/<%= @attempt.id %>" method="post" data-remote="true"> 
-    <input type="text" id="friend" name="name" autocomplete="off" placeholder="Enter a friend's name!"></input>
-  </form>
-</div>
-
-<div class="span3">
+<div class="span4">
   <h2><span id="puzzle_score"><%= @attempt.team_score %></span> / <%= @puzzle.pieces.count %></h2> team correct
 </div>

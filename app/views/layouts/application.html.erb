@@ -7,12 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
-
   <%= render "shared/header" %>
-  <%= render "shared/notices" %>
   <%= yield %>
   <%= render "shared/footer" %>
   <%= subscribe_to "/users/#{current_user.id}" if logged_in? %>
-
 </body>
 </html>

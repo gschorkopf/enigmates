@@ -1,4 +1,13 @@
 <div class="row">
+  <div class="span5">
+    <h2><%= @puzzle %></h2>
+    <h4>(<%= @puzzle.topic.titleize %>, <%= @attempt.mode.capitalize %>)</h4>
+    <form action="/invites/<%= @attempt.id %>" method="post" data-remote="true"> 
+      <input type="text" id="friend" name="name" autocomplete="off" placeholder="Enter a friend's name!"></input>
+    </form>
+  </div>
+
+  <!-- Any scoreboards should be 4 spans long -->
   <% if @attempt.mode == "versus" %>
     <%= render "attempts/versus" %>
   <% else %>
@@ -6,17 +15,17 @@
   <% end %>
 
   <div class="span3">
-    <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a guess"></input>
+    <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a <%=@puzzle.content_noun%>"></input>
   </div>
 </div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span9">
     <svg id="svg"></svg>
   </div>
 
-  <div class="span4">
-    <ul id="results"></ul>
+  <div class="span3">
+    <%= render 'shared/inplay' %>
   </div>
 </div>
 

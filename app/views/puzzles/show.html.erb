@@ -1,14 +1,17 @@
 <div class="row">
-  <div class="span6">
+  <div class="span9">
     <h2><%= @puzzle %></h2>
     <h4>(<%= @puzzle.topic %>)</h4>
+    <div class='pull-right'>
+      <p>Play modes: </p>
+      <div class="btn-group">
+        <%= button_to 'Co-Op', puzzle_attempts_path(@puzzle, mode: "co-op"), class: "btn btn-success" %>
+        <div class="btn disabled">Versus</div>
+      </div>
+    </div>
   </div>
 
-  <div class="span6">
-    <p>Play modes: </p>
-    <div class="btn-group">
-      <%= button_to 'Co-Op', puzzle_attempts_path(@puzzle, mode: "co-op"), class: "btn btn-success" %>
-      <div class="btn disabled">Versus</div>
-    </div>
+  <div class="span3">
+    <%= render 'shared/inplay' %>
   </div>
 </div>
