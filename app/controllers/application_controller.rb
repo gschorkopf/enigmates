@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :all_users
 
   def all_users
-    @all_users ||= User.all.map(&:name)
+    @all_users ||= User.all.map(&:name) #should remove current_user
   end
 
   def current_user
