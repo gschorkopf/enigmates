@@ -48,9 +48,12 @@ $(document).ready(function(){
   });
 
   <% if @puzzle.format == "map" %>
-    var svg = d3.select('#svg').append('svg');
+    var svg = d3.select('#svg').append('svg')
+      .attr('width', 700)
+      .attr('height', 490);
     var group = svg.append('g');
     var map = d3.geo.albersUsa();
+    group.attr('transform', 'scale(.8)');
 
     d3.json('/assets/us-states.json', function(collection) {
       group.selectAll('path')

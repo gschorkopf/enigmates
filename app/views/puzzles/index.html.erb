@@ -1,7 +1,16 @@
 <h2>Puzzles</h2>
 
-<ul>
-  <% @puzzles.each do |puzzle| %>
-    <li><%= link_to puzzle.name, puzzle_path(puzzle) %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <ul>
+    <% @puzzles.each do |puzzle| %>
+      <li class="span4">
+        <h4><%= puzzle %></h4>
+        <p>Play modes: </p>
+        <div class="btn-group">
+          <%= button_to 'Co-Op', puzzle_attempts_path(puzzle, mode: "co-op"), class: "btn btn-success" %>
+          <div class="btn disabled">Versus</div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

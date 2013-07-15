@@ -5,7 +5,7 @@ Enigmates::Application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   
   root to: "puzzles#index"
-  resources :puzzles, only: [:index, :show] do
+  resources :puzzles, only: [:index] do
     resources :attempts, only: [:show, :create] do
       resources :guesses, only: [:create]
     end

@@ -16,12 +16,4 @@ describe PuzzlesController do
       assigns(:puzzles).should eq([puzzle])
     end
   end
-
-  describe "GET show" do
-    it "assigns the requested puzzle as @puzzle" do
-      puzzle = Puzzle.create! valid_attributes
-      get :show, {:id => puzzle.to_param}, valid_session
-      assigns(:puzzle).should eq(puzzle)
-    end
-  end
 end
