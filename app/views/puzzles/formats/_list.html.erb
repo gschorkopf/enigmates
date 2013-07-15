@@ -4,7 +4,7 @@
   <% @puzzle.pieces.each do |piece| %>
   <tr>
     <td><%= piece.hint %></td>
-    <td id="list-item-<%= piece.id %>"></td>
+    <td id="list-item-<%= piece.id %>"><%= piece.content.titleize if @attempt.piece_solved?(piece.id) %></td>
   </tr>
   <% end %>
 </table>
