@@ -89,4 +89,18 @@ describe User do
       expect(@user.has_unread_invites?).to eq false
     end
   end
+
+  describe "#mark_invites_as_read" do
+    it "marks all relevent invites as read" do
+      invite = Invite.create(
+        sender_id: @inviter.id,
+        receiver_id: @user.id,
+        puzzle_id: @puzzle.id,
+        attempt_id: @attempt.id)
+      expect(@user.has_unread_invites?).to eq true
+      
+      @user.mark_invites_as_read(@attempt.id)
+      expect(@user.has_unread_invites?).to eq false
+    end
+  end
 end

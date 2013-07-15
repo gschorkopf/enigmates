@@ -16,4 +16,9 @@ class Invite < ActiveRecord::Base
     self.unread = false
     self.save
   end
+
+  def mark_as_unread
+    self.unread = true
+    self.save
+  end
 end

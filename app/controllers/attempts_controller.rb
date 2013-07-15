@@ -3,6 +3,8 @@ class AttemptsController < ApplicationController
   before_filter :require_player, only: [:show]
   
   def show
+    current_user.mark_invites_as_read(params[:id])
+
     @attempt = Attempt.find(params[:id])
     @puzzle = @attempt.puzzle
   end

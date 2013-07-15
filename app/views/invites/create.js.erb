@@ -1,7 +1,7 @@
 <% if @user && @invite %> 
 
   <% publish_to "/users/#{@user.id}" do %>
-    $("#invites").append("<P><%= j render 'invites/invite', invite: @invite %></P>");
+    $("#invites").prepend("<P><%= j render 'invites/invite', invite: @invite %></P>");
     var invite_count = $("span#invite_count")
     invite_count.text(Number(invite_count.text())+1);
   <% end %>
@@ -9,6 +9,7 @@
   $("#notices").append("<p>Invitation sent!</P>")
 
 <% elsif @warning %>
+  // Change invite color
   $("#notices").append("<p><%=@warning%></P>")
 <% else %>
   $("#notices").append("<P>That player does not exist!</P>");

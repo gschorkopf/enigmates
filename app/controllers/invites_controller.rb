@@ -7,7 +7,7 @@ class InvitesController < ApplicationController
       if @user.invited?(@attempt.id, current_user.id)
         Invite.where(
           attempt_id: @attempt.id,
-          sender_id: current_user.id).first.touch
+          sender_id: current_user.id).first.mark_as_unread
         @warning = "Invitation re-sent!"
       else
         @attempt.add_player(@user.id)

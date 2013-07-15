@@ -18,11 +18,12 @@
 }
 
 #invites {
-  li {
-    padding: 5px 10px 5px;
+  .unread-invite {
+    background-color: #CECEF6;
   }
-  a {
-    text-decoration: none;
+  .media {
+    padding: 5px 10px 5px;
+    width: 300px;
   }
 }
 

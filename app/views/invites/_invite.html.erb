@@ -1,1 +1,11 @@
-<li><%= raw invite.message %></li>
+<div class="media">
+  <div class="media-body">
+    <% if invite.unread? %>
+    <div class="media unread-invite">
+    <% else %>
+    <div class="media">
+    <% end %>
+      <%= raw invite.message %>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def mark_invites_as_read(attempt_id)
+    Invite.where(attempt_id: attempt_id, receiver_id: id).each do |invite|
+      invite.mark_as_read
+    end
+  end
+
   def to_s
     name
   end
