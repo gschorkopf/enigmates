@@ -7,10 +7,10 @@ Enigmates::Application.routes.draw do
   root to: "puzzles#index"
   resources :puzzles, only: [:index, :show] do
     resources :attempts, only: [:show, :create] do
-      resources :guesses, only: [:create]
+      resources :alerts, only: [:create]
+      resources :messages, only: [:create]
     end
   end
 
   match 'invites/:attempt_id/', to: "invites#create"
-  resources :messages, only: [:create]
 end

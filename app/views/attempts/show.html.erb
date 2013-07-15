@@ -38,6 +38,12 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+   
+    $.ajax({
+      url: "<%=@attempt.id%>/alerts",
+      type: "POST"
+    })
+
   $("input#guess_field").focus();
   $("input#guess_field").on("keyup", function(){
     $.ajax({

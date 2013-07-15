@@ -1,19 +1,21 @@
 // account for versus mode or coop. this is just coop
 
 <% if @guess %>
+  <% @id = @guess.piece.content.gsub(" ", "") %>
+
   <% publish_to "/attempts/#{@guess.attempt.id}" do %>
-    var target = $("ul#results")
+    var target = $("ul#stream")
     var score = $("span#puzzle_score")
 
     score.text(Number(score.text())+1);
-    target.prepend("<li class='guess'><%= @guess.user %> got: <%= @guess.piece.content.titleize %></li>")
-    d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "#F5A9BC");
+    target.prepend("<%= j render 'guesses/guess', guess: @guess %>")
+    d3.selectAll("#<%= @id %>").style("fill", "#F5A9BC");
 
     <% if @attempt.team_score == @attempt.puzzle.total %>
       $("input#guess_field").fadeOut();
     <% end %>
 
   <% end %>
-  d3.selectAll("#<%= @guess.piece.content.gsub(" ", "")%>").style("fill", "#A9A9F5");
+  d3.selectAll("#<%= @id %>").style("fill", "#A9A9F5");
   $("input#guess_field").val("")
 <% end %>
