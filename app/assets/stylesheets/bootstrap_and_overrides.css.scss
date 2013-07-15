@@ -1,3 +1,4 @@
+// Header Logic
 #auth_login {
   margin-top: 20px;
   font-size: 14px;
@@ -7,14 +8,30 @@
   text-decoration: none;
 }
 
+.dropdown {
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+#invites {
+  li {
+    padding: 5px 10px 5px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+
+// Footer Logic
 footer {
   margin-top: 50px;
   margin-bottom: 25px;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-}
-
-.underline {
-  text-decoration: underline;
 }

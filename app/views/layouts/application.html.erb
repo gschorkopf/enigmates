@@ -4,10 +4,12 @@
   <title>Enigmates</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
   <%= render "shared/header" %>
+  <%= render "shared/notices" %>
   <%= yield %>
   <%= render "shared/footer" %>
   <%= subscribe_to "/users/#{current_user.id}" if logged_in? %>

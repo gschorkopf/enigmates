@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require flat-ui
 //= require d3
 //= require private_pub
 //= require_tree .

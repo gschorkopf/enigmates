@@ -31,4 +31,12 @@ class User < ActiveRecord::Base
   def messages
     Message.where(receiver_id: id)
   end
+
+  def unread_invites
+    invites.where(unread: true)
+  end
+
+  def has_unread_invites?
+    !unread_invites.empty?
+  end
 end

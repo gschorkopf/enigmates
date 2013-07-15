@@ -2,16 +2,13 @@
   <div class="span5">
     <h2><%= @puzzle %></h2>
     <h4>(<%= @puzzle.topic.titleize %>, <%= @attempt.mode.capitalize %>)</h4>
-    <form action="/invites/<%= @attempt.id %>" method="post" data-remote="true"> 
-      <input type="text" id="friend" name="name" autocomplete="off" placeholder="Enter a friend's name!"></input>
-    </form>
   </div>
 
   <!-- Any scoreboards should be 4 spans long -->
   <% if @attempt.mode == "versus" %>
     <%= render "attempts/versus" %>
   <% else %>
-    <%= render "attempts/coop" %>
+    <%= render "attempts/co-op" %>
   <% end %>
 
   <div class="span3">

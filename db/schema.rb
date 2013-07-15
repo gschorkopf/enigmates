@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130714220837) do
+ActiveRecord::Schema.define(:version => 20130714234056) do
 
   create_table "attempt_users", :force => true do |t|
     t.integer  "user_id"
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(:version => 20130714220837) do
     t.integer  "attempt_id"
     t.integer  "sender_id"
     t.integer  "receiver_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "unread",      :default => true
   end
 
   create_table "messages", :force => true do |t|

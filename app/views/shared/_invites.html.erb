@@ -1,0 +1,16 @@
+<% if logged_in? %>
+<div class="dropdown pull-right">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    <% if current_user.has_unread_invites? %>
+      <span class="badge badge-important" id="invite_count"><%= current_user.invites.count %></span>
+    <% else %>
+      <span class="badge" id="invite_count">0</span>
+    <% end %>
+  </a>
+  <ul class="dropdown-menu" id="invites" role="menu" aria-labelledby="dLabel">
+    <% @current_user.invites.each do |invite| %>
+      <%= render 'invites/invite', invite: invite %>
+    <% end %>
+  </ul>
+</div>
+<% end %>

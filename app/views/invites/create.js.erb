@@ -1,8 +1,13 @@
-<% if @user %>  
+<% if @user && @invite %> 
+
   <% publish_to "/users/#{@user.id}" do %>
-    $("#notices").append("<P><%= raw @message%></P>");
+    $("#invites").append("<P><%= j render 'invites/invite', invite: @invite %></P>");
+    var invite_count = $("span#invite_count")
+    invite_count.text(Number(invite_count.text())+1);
   <% end %>
-  // Something confirming invite sent
+
+  $("#notices").append("<p>Invitation sent!</P>")
+
 <% elsif @warning %>
   $("#notices").append("<p><%=@warning%></P>")
 <% else %>

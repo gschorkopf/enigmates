@@ -55,4 +55,38 @@ describe User do
       expect(@user.invites).to eq [invite]
     end
   end
+
+  describe "#unread_invites" do
+    it "returns all unread invites" do
+      expect(@user.unread_invites).to eq []
+      invite = Invite.create(
+        sender_id: @inviter.id,
+        receiver_id: @user.id,
+        puzzle_id: @puzzle.id,
+        attempt_id: @attempt.id)
+      expect(@user.unread_invites).to eq [invite]
+    end
+  end
+
+  describe "#has_unread_invites?" do
+    it "returns true if user has unread invites" do
+      invite = Invite.create(
+        sender_id: @inviter.id,
+        receiver_id: @user.id,
+        puzzle_id: @puzzle.id,
+        attempt_id: @attempt.id)
+      expect(@user.has_unread_invites?).to eq true
+    end
+
+    it "returns false if user has read all invites" do
+      invite = Invite.create(
+        sender_id: @inviter.id,
+        receiver_id: @user.id,
+        puzzle_id: @puzzle.id,
+        attempt_id: @attempt.id)
+      invite.unread = false
+      invite.save
+      expect(@user.has_unread_invites?).to eq false
+    end
+  end
 end
