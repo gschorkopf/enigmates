@@ -11,4 +11,9 @@ class Invite < ActiveRecord::Base
   def message
     "#{sender} has invited you to attempt <a href='/puzzles/#{puzzle_id}/attempts/#{attempt_id}'>#{puzzle}</a>"
   end
+
+  def mark_as_read
+    self.unread = false
+    self.save
+  end
 end
