@@ -1,3 +1,10 @@
 <table class="table table-striped">
-  
+  <th><%= @puzzle.hint_noun %></th>
+  <th><%= @puzzle.content_noun %></th>
+  <% @puzzle.pieces.each do |piece| %>
+  <tr>
+    <td><%= piece.hint %></td>
+    <td id="list-item-<%= piece.id %>"></td>
+  </tr>
+  <% end %>
 </table>

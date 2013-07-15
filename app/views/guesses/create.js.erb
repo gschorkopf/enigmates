@@ -1,4 +1,4 @@
-// account for versus mode or coop. this is just coop
+// account for versus mode or co-op. this is just co-op
 
 <% if @guess %>
   <% @id = @guess.piece.content.gsub(" ", "") %>
@@ -9,13 +9,22 @@
 
     score.text(Number(score.text())+1);
     target.prepend("<%= j render 'guesses/guess', guess: @guess %>")
-    d3.selectAll("#<%= @id %>").style("fill", "#F5A9BC");
+    <% if @attempt.puzzle.format == "map" %>
+      d3.selectAll("#<%= @id %>").style("fill", "#F5A9BC");
+    <% elsif @attempt.puzzle.format == "list" %>
+      $("#list-item-<%= @guess.piece.id %>").text("<%= @guess.piece.content.titleize %>")
+    <% end %>  
+        
 
     <% if @attempt.team_score == @attempt.puzzle.total %>
       $("input#guess_field").fadeOut();
     <% end %>
 
   <% end %>
-  d3.selectAll("#<%= @id %>").style("fill", "#A9A9F5");
+  
+  <% if @attempt.puzzle.format == "map" %>
+    d3.selectAll("#<%= @id %>").style("fill", "#A9A9F5");
+  <% end %>
+
   $("input#guess_field").val("")
 <% end %>
