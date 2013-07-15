@@ -1,28 +1,36 @@
 <div class="row">
-  <div class="span5">
-    <h2><%= @puzzle %></h2>
-    <h4>(<%= @puzzle.topic.titleize %>, <%= @attempt.mode.capitalize %>)</h4>
-  </div>
-
-  <!-- Any scoreboards should be 4 spans long -->
-  <% if @attempt.mode == "versus" %>
-    <%= render "attempts/versus" %>
-  <% else %>
-    <%= render "attempts/co-op" %>
-  <% end %>
-
-  <div class="span3">
-    <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a <%=@puzzle.content_noun%>"></input>
-  </div>
-</div>
-
-<div class="row">
   <div class="span9">
-    <svg id="svg"></svg>
+    <div class="row">
+      <div class="span5">
+        <h3>"<%= @puzzle %>"</h3>
+        <ul>
+          <li>Topic: <%= @puzzle.topic.titleize %></li>
+          <li>Mode: <%= @attempt.mode.capitalize %></li>
+        </ul>
+        <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a <%=@puzzle.content_noun%>"></input>
+      </div>
+
+      <!-- Any scoreboards should be 4 spans long -->
+      <% if @attempt.mode == "versus" %>
+        <%= render "attempts/modes/versus" %>
+      <% elsif @attempt.mode == "co-op" %>
+        <%= render "attempts/modes/co-op" %>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="span9">
+        <% if @puzzle.format == "map" %>
+          <%= render "puzzles/formats/map" %>
+        <% elsif @puzzle.format == "list" %>
+          <%= render "puzzles/formats/list" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="span3">
-    <%= render 'shared/inplay' %>
+    <%= render 'shared/sidebar' %>
   </div>
 </div>
 
@@ -39,21 +47,23 @@ $(document).ready(function(){
     })
   });
 
-  var svg = d3.select('#svg').append('svg');
-  var group = svg.append('g');
-  var map = d3.geo.albersUsa();
+  <% if @puzzle.format == "map" %>
+    var svg = d3.select('#svg').append('svg');
+    var group = svg.append('g');
+    var map = d3.geo.albersUsa();
 
-  d3.json('/assets/us-states.json', function(collection) {
-    group.selectAll('path')
-      .data(collection.features)
-      .enter().append('path')
-      .attr('d', d3.geo.path().projection(map))
-      .attr('id', function(d){
-        return d.properties.name.replace(/\s+/g, '')
-      })
-      .style('fill', 'white')
-      .style('stroke', 'white')
-      .style('stroke-width', 1);
-  });
+    d3.json('/assets/us-states.json', function(collection) {
+      group.selectAll('path')
+        .data(collection.features)
+        .enter().append('path')
+        .attr('d', d3.geo.path().projection(map))
+        .attr('id', function(d){
+          return d.properties.name.replace(/\s+/g, '')
+        })
+        .style('fill', 'white')
+        .style('stroke', 'white')
+        .style('stroke-width', 1);
+    });
+  <% end %>
 })
 </script>

@@ -1,7 +1,0 @@
-<% if @attempt %>
-  <form action="/invites/<%= @attempt.id %>" method="post" data-remote="true"> 
-    <input type="text" id="friend" name="name" autocomplete="off" placeholder="Enter a friend's name!"></input>
-  </form>
-<% end %>
-
-<ul id="results"></ul>

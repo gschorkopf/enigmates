@@ -7,6 +7,7 @@ class Invite < ActiveRecord::Base
   belongs_to :receiver, class_name: "User", foreign_key: :receiver_id
 
   default_scope order('updated_at DESC')
+  default_scope order('updated_at DESC')
 
   def message
     "#{sender} has invited you to attempt <a href='/puzzles/#{puzzle_id}/attempts/#{attempt_id}'>#{puzzle}</a>"

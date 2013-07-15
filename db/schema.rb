@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130714234056) do
+ActiveRecord::Schema.define(:version => 20130715023058) do
 
   create_table "attempt_users", :force => true do |t|
     t.integer  "user_id"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20130714234056) do
     t.string   "image_url"
     t.string   "hint_noun"
     t.string   "content_noun"
+    t.text     "summary"
   end
 
   create_table "users", :force => true do |t|
