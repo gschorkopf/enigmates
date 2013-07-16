@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
  
     if user = User.find_by_email(auth_hash["info"]["email"])
       user.add_provider(auth_hash)
-      notice = "Welcome back, #{user.name}!"
     else
       user = Authorization.create_from_auth(auth_hash).user
       user.save ? notice = "You are now registered as #{user.name}!" : notice = "Something went wrong! Likely you didn't supply your email to #{auth_hash["provider"].capitalize}" 
     end
 
     session[:user_id] = user.id
+    # Fix redirect issue
     redirect_to root_path, notice: notice
   end
 

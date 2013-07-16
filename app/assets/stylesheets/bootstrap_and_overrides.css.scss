@@ -1,7 +1,16 @@
 // Header Logic
+body {
+  padding-top: 60px;
+}
+
 #auth_login {
   margin-top: 20px;
   font-size: 14px;
+}
+
+.navbar-fixed-top {
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .auth_provider {
@@ -62,6 +71,32 @@
   width: 25px;
 }
 
+// Attempt#show
+
+.puzzle-details {
+  list-style-type: none;
+}
+
+//// Sidebar
+
+.puzzle-attempt {
+  border-right: 1px dashed grey;
+}
+
+.puzzle-attempt-details {
+  border-bottom: 1px dashed grey;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.sidebar {
+ margin-left: 18px;
+}
+
+#stream {
+  list-style-type: none;
+}
+
 // Footer Logic
 footer {
   margin-top: 50px;
@@ -103,6 +138,6 @@ footer {
   -webkit-transform: rotatex(-180deg);
   background: white;
   div {
-    height: 100%;
+    height: 90%;
   }
 }

@@ -3,7 +3,7 @@
     <div class="span4 puzzle-box">
       <!-- <img src="assets/<%=puzzle.topic%>-icon.png" class="topic-icon img-circle"/> -->
 
-      <h4>"<%= puzzle %>"</h4>
+      <h4><%= puzzle %></h4>
 
       <div class="flip"> 
         <div class="card"> 
@@ -12,11 +12,7 @@
           </div>
           <div class="face back">
             <div class='img-polaroid'>
-              <ul> 
-                <li>Puzzle Summary</li>
-                <li>Most Recent Completion</li>
-                <li>Derp</li>
-              </ul>
+              Puzzle Summary here
             </div>
           </div> 
         </div> 
@@ -36,10 +32,10 @@
 
 
 <script type="text/javascript">
-//  $('.flip').on('mouseover', function(){
-//     $(this).find('.card').addClass('flipped').mouseleave(function(){
-//         $(this).removeClass('flipped');
-//     });
-//     return false;
-// });
+ $('.flip').on('mouseover', function(){
+    $(this).find('.card').addClass('flipped').mouseleave(function(){
+        $(this).removeClass('flipped');
+    });
+    return false;
+});
 </script>
