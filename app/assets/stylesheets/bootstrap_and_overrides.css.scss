@@ -1,6 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister);
+
 // Header Logic
 body {
   padding-top: 60px;
+}
+
+#brand {
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
 #auth_login {
