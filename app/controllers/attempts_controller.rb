@@ -3,7 +3,7 @@ class AttemptsController < ApplicationController
   before_filter :require_player, only: [:show]
   
   def show
-    @all_users = all_users # Bad solution!
+    @all_users = all_users
     current_user.mark_invites_as_read(params[:id])
 
     @attempt = Attempt.find(params[:id])

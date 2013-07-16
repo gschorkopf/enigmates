@@ -1,1 +1,35 @@
 <svg id="svg"></svg>
+<div id="correct-guesses" data-correct="<%=@attempt.correct_guesses%>"></div>
+
+<script type="text/javascript">
+  var svg = d3.select('#svg').append('svg')
+    .attr('width', 700)
+    .attr('height', 490);
+  var group = svg.append('g');
+  var map = d3.geo.albersUsa();
+  group.attr('transform', 'scale(.75)');
+
+  function determineColor(id){
+    if ($("#correct-guesses").data("correct").indexOf(id) === -1){ 
+      return 'white';
+    } else {
+      return '#1abc9c';
+    }
+  };
+
+  d3.json('/assets/us-states.json', function(collection) {
+    group.selectAll('path')
+      .data(collection.features)
+      .enter().append('path')
+      .attr('d', d3.geo.path().projection(map))
+      .attr('id', function(d){
+        return d.properties.name.replace(/\s+/g, '')
+      })
+      .style('fill', function(d){
+        return determineColor(d.properties.name.replace(/\s+/g, ''))
+      })
+      .style('stroke', 'white')
+      .style('stroke-width', 1);
+  });
+
+</script>

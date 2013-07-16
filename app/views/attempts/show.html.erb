@@ -39,6 +39,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $("input#guess_field").focus();
+  
   $("input#guess_field").on("keyup", function(){
     $.ajax({
       url: "<%=@attempt.id%>/guesses",
@@ -46,27 +47,5 @@ $(document).ready(function(){
       type: "POST"
     })
   });
-
-  <% if @puzzle.format == "map" %>
-    var svg = d3.select('#svg').append('svg')
-      .attr('width', 700)
-      .attr('height', 490);
-    var group = svg.append('g');
-    var map = d3.geo.albersUsa();
-    group.attr('transform', 'scale(.8)');
-
-    d3.json('/assets/us-states.json', function(collection) {
-      group.selectAll('path')
-        .data(collection.features)
-        .enter().append('path')
-        .attr('d', d3.geo.path().projection(map))
-        .attr('id', function(d){
-          return d.properties.name.replace(/\s+/g, '')
-        })
-        .style('fill', 'white')
-        .style('stroke', 'white')
-        .style('stroke-width', 1);
-    });
-  <% end %>
 })
 </script>

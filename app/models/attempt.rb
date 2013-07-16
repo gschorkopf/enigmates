@@ -36,4 +36,9 @@ class Attempt < ActiveRecord::Base
   def player_score(user_id)
     guesses.where(user_id: user_id).count
   end
+
+  def correct_guesses
+    pieces = guesses.where(correct: true).map(&:piece)
+    pieces.map{|p| p.content.gsub(" ", "")}
+  end
 end

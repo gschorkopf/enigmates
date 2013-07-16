@@ -49,13 +49,17 @@ body {
   }
 }
 
+.invite-time {
+  font-size: 12px;
+}
+
 // Puzzle#Index
 
 .puzzle-box {
   padding-top: 10px;
   padding-bottom: 10px;
-  border-top: 1px dashed grey;
-  border-bottom: 1px dashed grey;
+  border-top: 2px dashed #1abc9c;
+  border-bottom: 2px dashed #1abc9c;
   img {
     margin-bottom: 10px;
     width: 272px;
@@ -88,6 +92,10 @@ body {
 
 .puzzle-details {
   list-style-type: none;
+}
+
+#svg {
+  height: 500px;
 }
 
 //// Sidebar
