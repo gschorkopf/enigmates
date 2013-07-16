@@ -1,6 +1,7 @@
 <div id="auth_login" class="pull-right">
   <% if logged_in? %>
-    Logged in as <%= current_user %> | <%= link_to "Logout", "/logout" %>
+    <img src="<%= current_user.avatar %>" id="avatar" />
+    <P>Logged in as <%= current_user %> | <%= link_to "Logout", "/logout" %></p>
   <% else %>
     Log in with:
     <a href="/auth/twitter" class="auth_provider">
