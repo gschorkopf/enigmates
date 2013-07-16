@@ -1,6 +1,6 @@
 <div id="auth_login" class="pull-right">
   <% if logged_in? %>
-    <img src="<%= current_user.avatar %>" id="avatar" />
+    <img src="<%= current_user.avatar %>" id="avatar" class="img-circle" />
     <P>Logged in as <%= current_user %> | <%= link_to "Logout", "/logout" %></p>
   <% else %>
     Log in with:
