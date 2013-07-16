@@ -19,6 +19,8 @@ body {
 
 #avatar {
   padding-right: 15px;
+  height: 50px;
+  width: 50px;
 }
 
 .navbar-fixed-top {
@@ -58,8 +60,8 @@ body {
 .puzzle-box {
   padding-top: 10px;
   padding-bottom: 10px;
-  border-top: 2px dashed #1abc9c;
-  border-bottom: 2px dashed #1abc9c;
+  border-top: 1px dashed grey;
+  border-bottom: 1px dashed grey;
   img {
     margin-bottom: 10px;
     width: 272px;
