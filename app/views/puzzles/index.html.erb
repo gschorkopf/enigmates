@@ -1,16 +1,45 @@
-<h2>Puzzles</h2>
-
 <div class="row">
-  <ul>
-    <% @puzzles.each do |puzzle| %>
-      <li class="span4">
-        <h4><%= puzzle %></h4>
-        <p>Play modes: </p>
-        <div class="btn-group">
-          <%= button_to 'Co-Op', puzzle_attempts_path(puzzle, mode: "co-op"), class: "btn btn-success" %>
-          <div class="btn disabled">Versus</div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+  <% @puzzles.each do |puzzle| %>
+    <div class="span4 puzzle-box">
+      <!-- <img src="assets/<%=puzzle.topic%>-icon.png" class="topic-icon img-circle"/> -->
+
+      <h4>"<%= puzzle %>"</h4>
+
+      <div class="flip"> 
+        <div class="card"> 
+          <div class="face front">
+            <img src="assets/<%= puzzle.image_url %>" class="img-polaroid" />
+          </div>
+          <div class="face back">
+            <div class='img-polaroid'>
+              <ul> 
+                <li>Puzzle Summary</li>
+                <li>Most Recent Completion</li>
+                <li>Derp</li>
+              </ul>
+            </div>
+          </div> 
+        </div> 
+      </div> 
+
+      <p>Play modes: </p>
+
+      <div class="btn-group">
+        <%= link_to 'Co-Op', puzzle_attempts_path(puzzle, mode: "co-op"), method: :post, class: "btn btn-success" %>
+        <%= link_to 'Versus', puzzle_attempts_path(puzzle, mode: "versus"), method: :post, class: "btn pull-right" %>
+      </div>
+
+    </div>
+  <% end %>
 </div>
+
+
+
+<script type="text/javascript">
+//  $('.flip').on('mouseover', function(){
+//     $(this).find('.card').addClass('flipped').mouseleave(function(){
+//         $(this).removeClass('flipped');
+//     });
+//     return false;
+// });
+</script>

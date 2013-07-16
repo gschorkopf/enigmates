@@ -2,7 +2,8 @@ puzzle = Puzzle.create(
   name: "States in the United States",
   topic: "geography",
   format: "map",
-  content_noun: "state")
+  content_noun: "state",
+  image_url: "states.jpg")
 
 puzzle.pieces.create([ 
   {content: "alabama"}, 
@@ -62,7 +63,8 @@ puzzle2 = Puzzle.create(
   topic: "culture",
   format: "list",
   hint_noun: "year",
-  content_noun: "movie")
+  content_noun: "movie",
+  image_url: "oscars.jpg")
 
 puzzle2.pieces.create([ 
   {content: "argo", hint: "2012"}, 
@@ -91,5 +93,13 @@ puzzle2.pieces.create([
   {content: "driving miss daisy", hint: "1989"},
   {content: "rain man", hint: "1988"}
 ])
+
+puzzle3 = Puzzle.create(
+  name: "Record-Breaking Athletes",
+  topic: "sports",
+  format: "questions",
+  hint_noun: "record",
+  content_noun: "player",
+  image_url: "sports.jpg")
 
 
