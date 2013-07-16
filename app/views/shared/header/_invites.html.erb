@@ -8,8 +8,12 @@
     <% end %>
   </a>
   <ul class="dropdown-menu" id="invites" role="menu" aria-labelledby="dLabel">
-    <% @current_user.invites.each do |invite| %>
-      <%= render 'invites/invite', invite: invite %>
+    <% if current_user.invites.empty? %>
+      <P>You have no invitations!</P>
+    <% else %>
+      <% @current_user.invites.each do |invite| %>
+        <%= render 'invites/invite', invite: invite %>
+      <% end %>
     <% end %>
   </ul>
 </div>
