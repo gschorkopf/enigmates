@@ -69,7 +69,7 @@ puzzle2 = Puzzle.create(
 puzzle2.pieces.create([ 
   {content: "argo", hint: "2012"}, 
   {content: "the artist", hint: "2011"}, 
-  {content: "the king's speech", hint: "2010"},
+  {content: "the kings speech", hint: "2010"},
   {content: "the hurt locker", hint: "2009"},
   {content: "slumdog millionaire", hint: "2008"},
   {content: "no country for old men", hint: "2007"},
@@ -86,7 +86,7 @@ puzzle2.pieces.create([
   {content: "the english patient", hint: "1996"},
   {content: "braveheart", hint: "1995"},
   {content: "forrest gump", hint: "1994"},
-  {content: "schindler's list", hint: "1993"},
+  {content: "schindlers list", hint: "1993"},
   {content: "unforgiven", hint: "1992"},
   {content: "the silence of the lambs", hint: "1991"},
   {content: "dances with wolves", hint: "1990"},
