@@ -8,7 +8,7 @@ class InvitesController < ApplicationController
         Invite.where(
           attempt_id: @attempt.id,
           sender_id: current_user.id).first.mark_as_unread
-        @warning = "Invitation re-sent!"
+        @warning = "#{current_user} has re-sent an invitation to #{@user}!"
       else
         @attempt.add_player(@user.id)
         @invite = Invite.create(
@@ -16,6 +16,7 @@ class InvitesController < ApplicationController
           receiver_id: @user.id,
           puzzle_id: @attempt.puzzle.id,
           attempt_id: @attempt.id)
+        @message = "#{current_user} has sent an invitation to #{@user}!"
       end
     else
       @warning = "Player limit (4) has been reached!"

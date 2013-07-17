@@ -1,21 +1,34 @@
 <% if @user && @invite %> 
-
   <% publish_to "/users/#{@user.id}" do %>
     $("#invites").prepend("<%= j render 'invites/invite', invite: @invite %>");
     var invite_count = $("span#invite_count")
+
     if (invite_count.text() === "0") {
       invite_count.addClass("badge-important");
     }
+
     invite_count.text(Number(invite_count.text())+1);
   <% end %>
 
-  $("#notices").append("<p>Invitation sent!</P>")
+  <% publish_to "/attempts/#{@attempt.id}" do %>
+    $("#stream").append("<p><%=@message%></P>")
+  <% end %>
 
 <% elsif @warning %>
-  // add publish 
-  $("#notices").append("<p><%=@warning%></P>")
+  <% publish_to "/users/#{@user.id}" do %>
+    if ($("span#invite_count").text() === "0") {
+      $("span#invite_count").addClass("badge-important");
+    }
+    // Needs help
+  <% end %>
+
+  <% publish_to "/attempts/#{@attempt.id}" do %>
+    $("#stream").append("<p><%=@warning%></P>")
+  <% end %>
+
+
 <% else %>
-  $("#notices").append("<P>That player does not exist!</P>");
+  $("#stream").append("<P>That player does not exist!</P>");
 <% end %>
 
 $("#friend").val("");
