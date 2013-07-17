@@ -22,6 +22,11 @@ describe Puzzle do
     it "returns array the content columns of each piece" do
       expect(@puzzle.contents).to eq ["Alabama", "Alaska", "Arizona"]
     end
+
+    it "also contains alternative solutions" do
+      @puzzle.pieces.create(content: "New Jersey", alternatives: "Jersey")
+      expect(@puzzle.contents.include?("Jersey")).to eq true
+    end
   end
 
   describe "#total" do

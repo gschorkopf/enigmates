@@ -8,7 +8,7 @@
   end
 
   def contents
-    pieces.map(&:content)
+    (pieces.map(&:content) + pieces.map(&:alternatives)).compact
   end
 
   def total
