@@ -1,5 +1,10 @@
 <svg id="svg"></svg>
-<div id="correct-guesses" data-correct="<%=@attempt.correct_guesses%>"></div>
+<% if @attempt.mode == "co-op" %>
+  <div id="correct-guesses" data-correct="<%=@attempt.correct_guesses%>"></div>
+<% elsif @attempt.mode =="versus" %>
+  <div id="correct-guesses" data-correct="<%=@attempt.correct_guesses_by(current_user.id)%>"></div>
+<% end %>
+  
 
 <script type="text/javascript">
   var svg = d3.select('#svg').append('svg')

@@ -41,4 +41,9 @@ class Attempt < ActiveRecord::Base
     pieces = guesses.where(correct: true).map(&:piece)
     pieces.map{|p| p.content.gsub(" ", "")}
   end
+
+  def correct_guesses_by(user_id)
+    pieces = guesses.where(correct: true, user_id: user_id).map(&:piece)
+    pieces.map{|p| p.content.gsub(" ", "")}
+  end
 end

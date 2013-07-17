@@ -1,4 +1,4 @@
-<% @attempt.users.each_with_index do |user, index| %>
+<% @attempt.users.uniq.each_with_index do |user, index| %>
   <div class="span1">
     <h4><span id="score<%=index%>"><%= @attempt.player_score(user.id) %></span> / <%= @puzzle.pieces.count %></h4>
     <p><%= user %>'s Score</p>
