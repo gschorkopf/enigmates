@@ -10,7 +10,7 @@ class Invite < ActiveRecord::Base
   default_scope order('updated_at DESC')
 
   def message
-    "#{sender} has invited you to attempt <a href='/puzzles/#{puzzle_id}/attempts/#{attempt_id}'>#{puzzle}</a>"
+    "#{sender} has invited you to attempt <a href='/puzzles/#{puzzle_id}/attempts/#{attempt_id}'>#{puzzle} (#{attempt.mode}!)</a>"
   end
 
   def mark_as_read
