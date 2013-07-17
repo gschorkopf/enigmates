@@ -1,30 +1,5 @@
-// account for versus mode or co-op. this is just co-op
-
-<% if @guess %>
-  <% @id = @guess.piece.content.gsub(" ", "") %>
-
-  <% publish_to "/attempts/#{@guess.attempt.id}" do %>
-    var target = $("ul#stream")
-    var score = $("span#puzzle_score")
-
-    score.text(Number(score.text())+1);
-    target.prepend("<%= j render 'guesses/guess', guess: @guess %>")
-    <% if @attempt.puzzle.format == "map" %>
-      d3.selectAll("#<%= @id %>").style("fill", "#F5A9BC");
-    <% else %>
-      $("#list-item-<%= @guess.piece.id %>").text("<%= @guess.piece.content.titleize %>")
-    <% end %>  
-        
-
-    <% if @attempt.team_score == @attempt.puzzle.total %>
-      $("input#guess_field").fadeOut();
-    <% end %>
-
-  <% end %>
-  
-  <% if @attempt.puzzle.format == "map" %>
-    d3.selectAll("#<%= @id %>").style("fill", "#CEF6CE");
-  <% end %>
-
-  $("input#guess_field").val("")
+<% if @attempt.mode == "co-op" %>
+  <%= render "create_co-op" %>
+<% elsif @attempt.mode == "versus" %>
+  <%= render "create_versus" %>
 <% end %>
