@@ -8,7 +8,7 @@
       <div class="flip"> 
         <div class="card"> 
           <div class="face front">
-            <img src="assets/<%= puzzle.image_url %>" class="img-polaroid" />
+            <img src="assets/<%= puzzle.image_url %>" class="img-circle" />
           </div>
           <div class="face back">
             <div class='img-polaroid'>
@@ -32,10 +32,10 @@
 
 
 <script type="text/javascript">
- $('.flip').on('mouseover', function(){
-    $(this).find('.card').addClass('flipped').mouseleave(function(){
-        $(this).removeClass('flipped');
-    });
-    return false;
-});
+//  $('.flip').on('mouseover', function(){
+//     $(this).find('.card').addClass('flipped').mouseleave(function(){
+//         $(this).removeClass('flipped');
+//     });
+//     return false;
+// });
 </script>

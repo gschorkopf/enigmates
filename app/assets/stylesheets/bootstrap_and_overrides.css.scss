@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
 
 // Header Logic
 body {
@@ -6,7 +7,8 @@ body {
 }
 
 #brand {
-  font-family: 'Love Ya Like A Sister', cursive;
+  font-family: 'EB Garamond', cursive;
+  font-size: 42px;
 }
 
 #auth_login {
@@ -61,8 +63,8 @@ body {
 .puzzle-box {
   padding-top: 10px;
   padding-bottom: 10px;
-  border-top: 1px dashed grey;
-  border-bottom: 1px dashed grey;
+  //border-top: 1px dashed grey;
+  //border-bottom: 1px dashed grey;
   img {
     margin-bottom: 10px;
     width: 272px;

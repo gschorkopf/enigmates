@@ -8,9 +8,8 @@ Enigmates::Application.routes.draw do
   resources :puzzles, only: [:index] do
     resources :attempts, only: [:show, :create] do
       resources :guesses, only: [:create]
+      resources :messages, only: [:create]
     end
   end
-
-  resources :messages, only: [:create]
   match 'invites/:attempt_id/', to: "invites#create"
 end

@@ -1,7 +1,12 @@
-<% if @attempt %>
-  <form action="/invites/<%= @attempt.id %>" method="post" data-remote="true"> 
-    <input type="text" id="friend" name="name" autocomplete="off" placeholder="Enter a friend's name!" data-provide="typeahead" data-source="<%= @all_users %>"></input>
-  </form>
-<% end %>
+<h4>Invite your Friends</h4><br>
 
-<ul id="stream"></ul>
+<form action="/invites/<%= @attempt.id %>" method="post" data-remote="true"> 
+  <input type="text" id="friend" name="name" autocomplete="off" placeholder="Enter a friend's name" data-provide="typeahead" data-source="<%= @all_users %>"></input>
+</form>
+
+
+<h4>Puzzle Log</h4>
+<ul id="stream">
+
+</ul>
+

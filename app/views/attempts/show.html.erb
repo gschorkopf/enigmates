@@ -19,7 +19,7 @@
 
     <div class="row">
       <div class="span9">
-        <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a <%=@puzzle.content_noun%>"></input>
+        <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a <%=@puzzle.content_noun%> here:"></input>
         <% if @puzzle.format == "map" %>
           <%= render "puzzles/formats/map" %>
         <% elsif @puzzle.format == "list" %>
@@ -50,4 +50,20 @@ $(document).ready(function(){
     })
   });
 })
+
+window.onload = function(){
+  $.ajax({
+      url: "<%=@attempt.id%>/messages",
+      data: {"message" : "enter"},
+      type: "POST"
+    })
+};
+
+window.onbeforeunload = function() {
+  $.ajax({
+    url: "<%=@attempt.id%>/messages",
+    data: {"message" : "exit"},
+    type: "POST"
+  })
+};
 </script>

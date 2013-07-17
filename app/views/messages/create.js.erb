@@ -1,0 +1,3 @@
+<% publish_to "/attempts/#{@attempt.id}" do %>
+  $("#stream").append("<p><%= @message %></P>")
+<% end %>

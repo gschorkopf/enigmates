@@ -1,8 +1,10 @@
 class MessagesController < ApplicationController
   def create
-    @message = Message.create(
-      content: params[:create],
-      sender_id: current_user.id,
-      receiver_id: params[:receiver_id])
+    @attempt = Attempt.find(params[:attempt_id])
+    if params[:message] == "enter"
+      @message = "#{current_user} has joined the puzzle."
+    else
+      @message = "#{current_user} has left the puzzle."
+    end
   end
 end
