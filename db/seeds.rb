@@ -117,5 +117,5 @@ puzzle3.pieces.create([
   {content: "john isner", alternatives: "isner", hint: "Longest match in tennis history, lasting 11 hours, 5 minutes; ______ defeated Mahut 70-68 in the fifth set of the 1st round match. (2009)"},
   {content: "rory mcllroy", alternatives: "mcllroy", hint: "In winning the U.S. Open, he broke tournament records for the lowest 72-hole score, both in total strokes (268) and in relation to par (-16). (2010)"},
   {content: "drew brees", alternatives: "brees", hint: "Threw for 5,476 yards in 2011-12, breaking the NFL single-season record. (2011)"},
-  {content: "calvin johnson", alternatives: "johnson", hint: "Surpassed Jerry Rice and stood atop the record books, finishing the season with receiving yards 1,964 yards. (2012"}
+  {content: "calvin johnson", alternatives: "johnson", hint: "Surpassed Jerry Rice and stood atop the record books, finishing the season with receiving yards 1,964 yards. (2012)"}
 ])

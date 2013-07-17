@@ -94,4 +94,12 @@ describe Attempt do
       expect(@attempt.within_player_limit?).to eq false
     end
   end
+
+  describe "#correct_guesses" do
+    it "converts correct guesses to IDs" do
+      expect(@attempt.correct_guesses).to eq []
+      @attempt.guesses.create(piece_id: Piece.first.id)
+      expect(@attempt.correct_guesses).to eq ["alabama"]
+    end
+  end
 end

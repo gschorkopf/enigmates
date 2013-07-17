@@ -34,4 +34,10 @@ describe Puzzle do
       expect(@puzzle.total).to eq 3
     end
   end
+
+  describe "#pieces_in_pairs" do
+    it "returns pieces in pairs of 2" do
+      expect(@puzzle.pieces_in_pairs.count).to eq 2
+    end
+  end
 end
