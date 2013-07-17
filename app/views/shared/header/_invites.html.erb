@@ -1,5 +1,6 @@
 <% if logged_in? %>
 <div class="dropdown pull-right">
+  Invites: 
   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
     <% if current_user.has_unread_invites? %>
       <span class="badge badge-important" id="invite_count"><%= current_user.unread_invites.count %></span>

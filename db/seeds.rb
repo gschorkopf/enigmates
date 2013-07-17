@@ -3,7 +3,8 @@ puzzle = Puzzle.create(
   topic: "geography",
   format: "map",
   content_noun: "state",
-  image_url: "states.jpg")
+  image_url: "states.jpg",
+  summary: "I personally believe that U.S. Americans are unable to [locate the U.S. on a map] because, uh, some, uh, people out there in our nation don't have maps and, uh, I believe that our education like such as in South Africa and, uh, the Iraq, everywhere like such as, and, I believe that they should, our education over here in the U.S. should help the U.S., uh, or, uh.'")
 
 puzzle.pieces.create([ 
   {content: "alabama"}, 
@@ -95,11 +96,26 @@ puzzle2.pieces.create([
 ])
 
 puzzle3 = Puzzle.create(
-  name: "Record-Breaking Athletes",
+  name: "Record-Breaking Sports Performances",
   topic: "sports",
-  format: "questions",
+  format: "list",
   hint_noun: "record",
   content_noun: "player",
   image_url: "sports.jpg")
 
 
+puzzle3.pieces.create([ 
+  {content: "pete sampras", hint: "Passed Roy Emerson in total career men's tennis Grand Slam titles. The record has since been surpassed. (2000)"}, 
+  {content: "tiger woods", hint: "Consecutive men's major golf championships with 4 in a row. (2001"}, 
+  {content: "emmitt smith", hint: "Surpassed Walter Payton's total career NFL rushing yards (17,162 at the close of the league's 2002 season, with 975 tallied therein) (2002)"},
+  {content: "eric gagne", hint: "Consecutive saves converted in a single MLB regular season (55 across the league's 2003 season) (2003)"},
+  {content: "peyton manning", hint: "Surpassed Dan Marino's total single-season NFL passing touchdowns record (49 in the league's 2004 season) (2004)"},
+  {content: "shaun alexander", hint: "Surpassed Priest Holmes' total single-season NFL rushing touchdowns record (27 in the league's 2005 season) (2005)"},
+  {content: "ladainian tomlinson", hint: "Surpassed the previous answer's American football Total single-season NFL rushing touchdowns cecord (28 in the league's 2006 season) (2006)"},
+  {content: "brett favre", hint: "Surpassed Dan Marino's total career NFL passing touchdowns record (442 at the close of the 2007 season, with 28 tallied therein) (2007)"},
+  {content: "michael phelps", hint: "Surpassed Mark Spitz's record for total gold medals achieved at a single Games of the Olympiad (Eight in the 2008 Summer Olympics) (2008)"},
+  {content: "john isner", hint: "Longest match in tennis history, lasting 11 hours, 5 minutes; ______ defeated Mahut 70-68 in the fifth set of the 1st round match. (2009)"},
+  {content: "rory mcllroy", hint: "In winning the U.S. Open, he broke tournament records for the lowest 72-hole score, both in total strokes (268) and in relation to par (−16). (2010)"},
+  {content: "drew brees", hint: "Threw for 5,476 yards in 2011-12, breaking the NFL single-season record. (2011)"},
+  {content: "gladiator", hint: "Surpassed Jerry Rice and stood atop the record books, finishing the season with receiving yards 1,964 yards. (2012"}
+])
