@@ -98,8 +98,8 @@ puzzle2.pieces.create([
 puzzle3 = Puzzle.create(
   name: "Record-Breaking Sports Performances",
   topic: "sports",
-  format: "questions",
-  hint_noun: "record",
+  format: "quiz",
+  hint_noun: "record hint",
   content_noun: "player",
   image_url: "sports.jpg")
 

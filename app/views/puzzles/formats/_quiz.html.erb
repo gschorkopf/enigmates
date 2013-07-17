@@ -1,0 +1,10 @@
+<table class="table table-striped row">
+  <th class="span6"><%= @puzzle.hint_noun %></th>
+  <th class="span6"><%= @puzzle.content_noun %></th>
+  <% @puzzle.pieces.each do |piece| %>
+  <tr>
+    <td><%= piece.hint %></td>
+    <td id="list-item-<%= piece.id %>"><%= piece.content.titleize if @attempt.piece_solved?(piece.id) %></td>
+  </tr>
+  <% end %>
+</table>

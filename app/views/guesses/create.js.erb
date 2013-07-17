@@ -11,7 +11,7 @@
     target.prepend("<%= j render 'guesses/guess', guess: @guess %>")
     <% if @attempt.puzzle.format == "map" %>
       d3.selectAll("#<%= @id %>").style("fill", "#F5A9BC");
-    <% elsif @attempt.puzzle.format == "list" %>
+    <% else %>
       $("#list-item-<%= @guess.piece.id %>").text("<%= @guess.piece.content.titleize %>")
     <% end %>  
         

@@ -14,4 +14,8 @@
   def total
     pieces.count
   end
-end
+
+  def pieces_in_pairs
+    pieces.each_slice(2).to_a
+  end
+end 

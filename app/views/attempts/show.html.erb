@@ -24,6 +24,8 @@
           <%= render "puzzles/formats/map" %>
         <% elsif @puzzle.format == "list" %>
           <%= render "puzzles/formats/list" %>
+        <% elsif @puzzle.format == "quiz" %>
+          <%= render "puzzles/formats/quiz" %>
         <% end %>
       </div>
     </div>
