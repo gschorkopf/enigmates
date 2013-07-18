@@ -11,7 +11,7 @@ class Attempt < ActiveRecord::Base
   end
 
   def piece_solved_by_player?(piece_id, user_id)
-    guesses = Guess.where(piece_id: piece_id, user_id: user_id)
+    guesses = self.guesses.where(piece_id: piece_id, user_id: user_id)
     !guesses.empty?
   end
 

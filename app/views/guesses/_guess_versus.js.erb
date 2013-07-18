@@ -1,28 +1,26 @@
 <% if @guess %>
   <% @id = @guess.piece.content.gsub(" ", "") %>
+  console.log(<%=@guess.inspect%>)
 
   <% publish_to "/attempts/#{@guess.attempt.id}" do %>
-    var target = $("ul#stream")
-    var score = $("span#puzzle_score")
+    var score = $("span#puzzle_score-<%=@guess.user.id%>")
 
     score.text(Number(score.text())+1);
-    target.prepend("<%= j render 'guesses/guess', guess: @guess %>")
-    <% if @attempt.puzzle.format == "map" %>
-      d3.selectAll("#<%= @id %>").style("fill", "#F5A9BC");
-    <% else %>
-      $("#list-item-<%= @guess.piece.id %>").text("<%= @guess.piece.content.titleize %>")
-    <% end %>  
-        
 
-    <% if @attempt.team_score == @attempt.puzzle.total %>
+    <% if @attempt.player_score(@guess.user.id) == @attempt.puzzle.total %>
       $("input#guess_field").fadeOut();
     <% end %>
 
   <% end %>
+
+  var target = $("ul#stream")
+  target.prepend("<%= j render 'guesses/guess', guess: @guess %>")
   
   <% if @attempt.puzzle.format == "map" %>
-    d3.selectAll("#<%= @id %>").style("fill", "#CEF6CE");
-  <% end %>
+    d3.selectAll("#<%= @id %>").style("fill", "#F5A9BC");
+  <% else %>
+    $("#list-item-<%= @guess.piece.id %>").text("<%= @guess.piece.content.titleize %>")
+  <% end %>  
 
   $("input#guess_field").val("")
 <% end %>

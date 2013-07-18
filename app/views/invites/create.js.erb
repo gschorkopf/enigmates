@@ -12,6 +12,9 @@
 
   <% publish_to "/attempts/#{@attempt.id}" do %>
     $("#stream").prepend("<p><%=@message%></P>")
+    <% if @attempt.mode == "versus" %>
+      $(".versus-scores").append("<%= j render 'attempts/modes/player_score', {user: @user} %>");
+    <% end %>
   <% end %>
 
 <% elsif @status == :repeat %>

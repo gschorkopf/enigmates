@@ -1,5 +1,5 @@
 <% if @attempt.mode == "co-op" %>
-  <%= render "guess_co-op" %>
+  <%= render "guess_co-op", format: :js %>
 <% elsif @attempt.mode == "versus" %>
-  <%= render "guess_versus" %>
+  <%= render "guess_versus", format: :js %>
 <% end %>
