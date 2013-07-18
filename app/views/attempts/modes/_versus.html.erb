@@ -1,8 +1,7 @@
-<% @attempt.users.uniq.each_with_index do |user, index| %>
-  <div class="span1">
-    <h4 class="score-color-<%=index%>"><span id="score<%=index%>"><%= @attempt.player_score(user.id) %></span> / <%= @puzzle.pieces.count %></h4>
-    <p class="score-color-<%=index%>"><%= user %>'s Score</p>
-  </div>
-<% end %>
+<div class="versus-scores">
+  <% @attempt.users.uniq.each do |user| %>
+    <%= render "attempts/modes/player_score", {user: user} %>
+  <% end %>
+</div>
 
 <%= render "attempts/column_filler" %>
