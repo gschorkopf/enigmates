@@ -13,10 +13,12 @@ class GuessesController < ApplicationController
         @guess = @attempt.guesses.create(
                   piece_id: piece.id,
                   user_id: current_user.id) unless @attempt.piece_solved?(piece.id)
+        @attempt.complete if @attempt.team_score == @attempt.puzzle.total
       elsif @attempt.mode == "versus"
         @guess = @attempt.guesses.create(
                   piece_id: piece.id,
                   user_id: current_user.id) unless @attempt.piece_solved_by_player?(piece.id, current_user.id)
+        @attempt.complete if @attempt.player_score(current_user.id) == @attempt.puzzle.total
       end
     end
   end

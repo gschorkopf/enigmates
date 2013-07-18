@@ -15,7 +15,8 @@
         
 
     <% if @attempt.team_score == @attempt.puzzle.total %>
-      $("input#guess_field").fadeOut();
+      $("input#guess_field").remove();
+      $(".guess_area").append("<h4>Well done, team! You solved the puzzle!</h4>");
     <% end %>
 
   <% end %>

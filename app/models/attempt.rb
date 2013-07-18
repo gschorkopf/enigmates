@@ -6,6 +6,11 @@ class Attempt < ActiveRecord::Base
   has_many :users, through: :attempt_users
   belongs_to :puzzle
 
+  def complete
+    self.status = "complete"
+    self.save
+  end
+
   def piece_solved?(piece_id)
     guesses.map(&:piece_id).include?(piece_id)
   end
