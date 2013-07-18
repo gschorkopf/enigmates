@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :logged_in?, :all_users
+  helper_method :current_user, :logged_in?, :all_users, :clean_entry
 
   def all_users
     @all_users ||= User.all.map(&:name) #should remove current_user
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user
+  end
+
+  def clean_entry(guess)
+    guess.downcase.gsub("'", "").rstrip
   end
 
   def require_login
@@ -29,6 +33,6 @@ class ApplicationController < ActionController::Base
 
 private
   def find_attempt
-    Attempt.find(params[:id] || params[:attempt_id])
+    Attempt.find(params[:attempt_id] || params[:id])
   end
 end

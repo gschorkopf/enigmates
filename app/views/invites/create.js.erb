@@ -14,6 +14,8 @@
     $("#stream").prepend("<p><%=@message%></P>")
     <% if @attempt.mode == "versus" %>
       $(".versus-scores").append("<%= j render 'attempts/modes/player_score', {user: @user} %>");
+    <% elsif @attempt.mode == "co-op" %>
+      $("#player-list").append("<p><%=@user%></p>")
     <% end %>
   <% end %>
 

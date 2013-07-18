@@ -1,3 +1,10 @@
-<div class="span4">
-  <h2><span id="puzzle_score"><%= @attempt.team_score %></span> / <%= @puzzle.pieces.count %></h2> team correct
+<div class="span1 score-color">
+  <h2><span id="puzzle_score"><%= @attempt.team_score %></span> / <%= @puzzle.pieces.count %></h2> team score
+</div>
+
+<div class="span3" id="player-list">
+  <h5>Players</h5>
+  <% @attempt.users.uniq.each do |user| %>
+  <p><%=user%></p>
+  <% end %>
 </div>

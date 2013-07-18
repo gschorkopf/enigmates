@@ -2,7 +2,7 @@ class GuessesController < ApplicationController
   before_filter :require_player
 
   def create
-    guess = params[:guess].downcase.gsub("'", "")
+    guess = clean_entry(params[:guess])
     @attempt = Attempt.find(params[:attempt_id])
     pieces = @attempt.puzzle.contents
 
