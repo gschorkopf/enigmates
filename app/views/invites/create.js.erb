@@ -8,6 +8,7 @@
     }
 
     invite_count.text(Number(invite_count.text())+1);
+    $("title").text("Enigmates (<%=@user.unread_invites.count%>)");
   <% end %>
 
   <% publish_to "/attempts/#{@attempt.id}" do %>

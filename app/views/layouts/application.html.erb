@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Enigmates</title>
+  <title>Enigmates
+    <%= " (#{current_user.unread_invites.count})" if (current_user && current_user.has_unread_invites?) %>
+  </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
