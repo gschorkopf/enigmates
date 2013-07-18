@@ -27,7 +27,10 @@ class User < ActiveRecord::Base
   end
 
   def invited?(attempt_id, sender_id)
-    !Invite.where(attempt_id: attempt_id, sender_id: sender_id).empty?
+    !Invite.where(
+      attempt_id: attempt_id,
+      sender_id: sender_id,
+      receiver_id: self.id).empty?
   end
 
   def invites
