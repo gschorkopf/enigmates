@@ -13,9 +13,18 @@ describe MessagesController do
   end
 
   describe "POST create" do
-    it "creates a new message object" do
+    it "creates a new entering message" do
       post :create,
         message: "enter",
+        attempt_id: @attempt.id,
+        puzzle_id: @puzzle.id,
+        format: :js
+      expect(response.status).to eq 200
+    end
+
+    it "creates a new exiting object" do
+      post :create,
+        message: "exit",
         attempt_id: @attempt.id,
         puzzle_id: @puzzle.id,
         format: :js

@@ -34,10 +34,6 @@ class User < ActiveRecord::Base
     Invite.where(receiver_id: id)
   end
 
-  def messages
-    Message.where(receiver_id: id)
-  end
-
   def unread_invites
     invites.where(unread: true)
   end

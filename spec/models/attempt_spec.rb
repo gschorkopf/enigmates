@@ -102,4 +102,12 @@ describe Attempt do
       expect(@attempt.correct_guesses).to eq ["alabama"]
     end
   end
+
+  describe "#correct_guesses_by" do
+    it "converts correct guesses to IDs for one user" do
+      expect(@attempt.correct_guesses_by(@user.id)).to eq []
+      @attempt.guesses.create(piece_id: Piece.first.id, user_id: @user.id)
+      expect(@attempt.correct_guesses_by(@user.id)).to eq ["alabama"]
+    end
+  end
 end
