@@ -12,7 +12,7 @@
     <% end %>
   <% end %>
 
-  var target = $("ul#stream")
+  var target = $("div#stream")
   target.prepend("<%= j render 'guesses/guess', guess: @guess %>")
   
   <% if @attempt.puzzle.format == "map" %>

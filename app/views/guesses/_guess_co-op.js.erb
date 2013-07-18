@@ -2,7 +2,7 @@
   <% @id = @guess.piece.content.gsub(" ", "") %>
 
   <% publish_to "/attempts/#{@guess.attempt.id}" do %>
-    var target = $("ul#stream")
+    var target = $("div#stream")
     var score = $("span#puzzle_score")
 
     score.text(Number(score.text())+1);

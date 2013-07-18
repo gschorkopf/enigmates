@@ -6,7 +6,7 @@
         <ul class="puzzle-details">
           <li><B>Topic:</B> <%= @puzzle.topic.titleize %></li>
           <li><B>Mode:</B> <%= @attempt.mode.capitalize %></li>
-          <li>This puzzle is not timed, and can be solved in any order.</li>
+          <li><B>Rules:</B> <%= @puzzle.summary %> </li>
         </ul>
       </div>
 
@@ -22,12 +22,13 @@
       <div class="span9">
         <div class="row">
           <div class="span3">
+            <h4>Solution Zone</h4>
           </div>
           <div class="span6 guess_area">
             <% if @attempt.status == "complete" %>
             <h5>This puzzle has been completed.</h5>
             <% else %>
-            <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a <%=@puzzle.content_noun%> here:"></input>
+            <input id="guess_field" autocomplete="off" type="text" name="guess" placeholder="Enter a <%=@puzzle.content_noun%> here"></input>
             <% end %>
           </div>
         </div>

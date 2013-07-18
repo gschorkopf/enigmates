@@ -4,7 +4,7 @@ puzzle = Puzzle.create(
   format: "map",
   content_noun: "state",
   image_url: "states.jpg",
-  summary: "I personally believe that U.S. Americans are unable to [locate the U.S. on a map] because, uh, some, uh, people out there in our nation don't have maps and, uh, I believe that our education like such as in South Africa and, uh, the Iraq, everywhere like such as, and, I believe that they should, our education over here in the U.S. should help the U.S., uh, or, uh.'")
+  summary: "See if you can guess all 50 of the United States by typing in their names and filling in the map below. This puzzle is not timed, and the pieces can be solved in any order. Solutions are case insensitive.")
 
 puzzle.pieces.create([ 
   {content: "alabama"}, 
@@ -65,7 +65,8 @@ puzzle2 = Puzzle.create(
   format: "list",
   hint_noun: "year",
   content_noun: "movie",
-  image_url: "oscars.jpg")
+  image_url: "oscars.jpg",
+  summary: "Can you name some of the most prolific films in cinema history, based only on their year of release? This puzzle is not timed, and the pieces can be solved in any order. Solutions are case insensitive.")
 
 puzzle2.pieces.create([ 
   {content: "argo", hint: "2012"}, 
@@ -101,7 +102,8 @@ puzzle3 = Puzzle.create(
   format: "quiz",
   hint_noun: "record hint",
   content_noun: "player",
-  image_url: "sports.jpg")
+  image_url: "sports.jpg",
+  summary: "Given a description of the player's feat, name the corresponding athlete. This puzzle is not timed, and the pieces can be solved in any order. Solutions are case insensitive, and you may use the player's last name or full name.")
 
 
 puzzle3.pieces.create([ 

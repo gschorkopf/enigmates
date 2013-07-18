@@ -1,7 +1,7 @@
 <div class="row">
+  <h3>Featured Puzzles</h3>
   <% @puzzles.each do |puzzle| %>
     <div class="span4 puzzle-box">
-      <!-- <img src="assets/<%=puzzle.topic%>-icon.png" class="topic-icon img-circle"/> -->
 
       <h4><%= puzzle %></h4>
 
@@ -18,7 +18,7 @@
         </div> 
       </div> 
 
-      <p>Play modes: </p>
+      <p>Play modes</p>
 
       <div class="btn-group">
         <%= link_to 'Co-Op', puzzle_attempts_path(puzzle, mode: "co-op"), method: :post, class: "btn btn-success" %>
