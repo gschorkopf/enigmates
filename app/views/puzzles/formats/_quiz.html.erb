@@ -4,7 +4,13 @@
   <% @puzzle.pieces.each do |piece| %>
   <tr>
     <td><%= piece.hint %></td>
-    <td id="list-item-<%= piece.id %>"><%= piece.content.titleize if @attempt.piece_solved?(piece.id) %></td>
+    <td id="list-item-<%= piece.id %>">
+      <% if @attempt.mode == "co-op" %>
+      <%= piece.content.titleize if @attempt.piece_solved?(piece.id) %>
+      <% elsif @attempt.mode == "versus" %>
+      <%= piece.content.titleize if @attempt.piece_solved_by_player?(piece.id, current_user.id) %>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 </table>

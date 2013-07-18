@@ -6,10 +6,22 @@
   <% @puzzle.pieces_in_pairs.each do |piece1, piece2| %>
   <tr>
     <td><%= piece1.hint %></td>
-    <td id="list-item-<%= piece1.id %>"><%= piece1.content.titleize if @attempt.piece_solved?(piece1.id) %></td>
+    <td id="list-item-<%= piece1.id %>">
+      <% if @attempt.mode == "co-op" %>
+      <%= piece1.content.titleize if @attempt.piece_solved?(piece1.id) %>
+      <% elsif @attempt.mode == "versus" %>
+      <%= piece1.content.titleize if @attempt.piece_solved_by_player?(piece1.id, current_user.id) %>
+      <% end %>
+    </td>
     <% if piece2 %>  
       <td><%= piece2.hint %></td>
-      <td id="list-item-<%= piece2.id %>"><%= piece2.content.titleize if @attempt.piece_solved?(piece2.id) %></td>
+      <td id="list-item-<%= piece2.id %>">
+      <% if @attempt.mode == "co-op" %>
+      <%= piece2.content.titleize if @attempt.piece_solved?(piece2.id) %>
+      <% elsif @attempt.mode == "versus" %>
+      <%= piece2.content.titleize if @attempt.piece_solved_by_player?(piece2.id, current_user.id) %>
+      <% end %>
+      </td>
     <% else %>
       <td></td><td></td>
     <% end %>
