@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :all_users, :clean_entry
 
   def all_users
-    @all_users ||= User.all.map(&:name) #should remove current_user
+    @all_users ||= User.all.reject{|u| u == current_user}.map(&:name)
   end
 
   def current_user

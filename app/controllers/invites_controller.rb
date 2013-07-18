@@ -3,7 +3,7 @@ class InvitesController < ApplicationController
     @attempt = Attempt.find(params[:attempt_id])
     @user = User.find_by_name(params[:name])
 
-    if @user
+    if @user # Will include case for current_user
       if @attempt.within_player_limit?
         if @user.invited?(@attempt.id, current_user.id)
           Invite.where(
