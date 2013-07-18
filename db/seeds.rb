@@ -97,7 +97,7 @@ puzzle2.pieces.create([
 ])
 
 puzzle3 = Puzzle.create(
-  name: "Recent Record-Breaking Sports Performances",
+  name: "Record-Breaking Sports Performances",
   topic: "sports",
   format: "quiz",
   hint_noun: "record hint",
