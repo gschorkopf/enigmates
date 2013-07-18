@@ -33,6 +33,12 @@ body {
   text-decoration: none;
 }
 
+#twitter-login {
+  filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1);
+}
+
 .dropdown {
   margin-top: 20px;
   margin-right: 20px;

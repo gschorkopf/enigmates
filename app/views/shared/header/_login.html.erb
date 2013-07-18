@@ -4,9 +4,7 @@
     <P>Logged in as <%= current_user %> | <%= link_to "Logout", "/logout" %></p>
   <% else %>
     Log in with:
-    <a href="/auth/twitter" class="auth_provider">
-      <%= image_tag "twitter_64.png", size: "32x32", alt: "Twitter" %>
-    </a>
+    <%= image_tag "twitter_64.png", size: "32x32", alt: "Twitter", id: "twitter-login" %>
     <a href="/auth/facebook" class="auth_provider">
       <%= image_tag "facebook_64.png", size: "32x32", alt: "Facebook" %>
     </a>
