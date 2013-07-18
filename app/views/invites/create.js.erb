@@ -11,7 +11,10 @@
   <% end %>
 
   <% publish_to "/attempts/#{@attempt.id}" do %>
+    <% @puzzle = @attempt.puzzle %>
     $("#stream").prepend("<p><%=@message%></P>")
+    // Right now, you could possibly invite someone back and see the score twice. Bug
+    $(".versus-scores").append("<%= j render 'attempts/modes/player_score', {user: @user} %>");
   <% end %>
 
 <% elsif @status == :repeat %>
