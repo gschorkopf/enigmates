@@ -7,6 +7,7 @@ Enigmates::Application.routes.draw do
   root to: "puzzles#index"
   resources :puzzles, only: [:index] do
     resources :attempts, only: [:show, :create] do
+      post "build_chart", as: "build_chart"
       resources :guesses, only: [:create]
       resources :messages, only: [:create]
     end

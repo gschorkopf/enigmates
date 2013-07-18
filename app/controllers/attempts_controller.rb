@@ -18,4 +18,8 @@ class AttemptsController < ApplicationController
 
     redirect_to puzzle_attempt_path(puzzle, @attempt)
   end
+
+  def build_chart
+    @attempt = Attempt.find(params[:attempt_id])
+  end
 end
